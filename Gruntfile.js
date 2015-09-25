@@ -16,11 +16,13 @@ module.exports = function (grunt) {
                 options : {
                     process : function(content, srcpath){
                         if(srcpath == 'index.html'){
+                            // week place as we depends on markup very much
                             content = content
                                 .replace('libs/requirejs/', '')
                                 .replace('app/app', 'app')
                                 .replace('<link rel="stylesheet/less" type="text/css" href="less/app.less"/>', '<link rel="stylesheet" type="text/css" href="app.css"/>')
-                                .replace('<script src="libs/less/dist/less.js"></script>', '');
+                                .replace('<script src="libs/less/dist/less.js"></script>', '')
+                                .replace("<script>var require = { urlArgs : 'bust=' + Date.now()}</script>", '');
                         }
 
                         return content;

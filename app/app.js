@@ -1,5 +1,6 @@
 require({
     baseUrl : './app',
+    urlArgs: 'bust=' + Date.now(),
     paths : {
         text : "../libs/text/text",
         domReady : "../libs/requirejs-domready/domReady",
