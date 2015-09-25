@@ -6,7 +6,7 @@ You must have node.js and its package manager (npm) installed. You can get them 
 
 ## Running in development mode
 
-If you want to start a compoenent in development mode, simply do
+If you want to start a component in development mode, simply do
 
 ```
 npm start
