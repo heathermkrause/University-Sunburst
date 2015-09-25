@@ -115,7 +115,7 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
         function textX(d){
             var angle = d.startAngle + d.deltaAngle / 2;
 
-            return Math.max((R + textDelta), scaleSize(d.size) + 20 + textDelta) * Math.sin(angle) - (angle > Math.PI ? HtmlUtil.measure(text(d), 'sunburst-text-measure') : 0);
+            return Math.max((R + textDelta), scaleSize(d.size) + 20 + textDelta) * Math.sin(angle) - (angle > Math.PI ? HtmlUtil.measure(text(d), 'sunburst-text-measure', this.el) : 0);
         }
 
         function textY(d){

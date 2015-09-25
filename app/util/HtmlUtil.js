@@ -23,16 +23,18 @@ define(["exports"], function(exports){
      * TODO: provide option to create measure element in context of some element, not in body.
      * @param text
      * @param css
+     * @param parent    Optional parent element where measure span is appended
      * @returns {number}
      */
-    exports.measure = function(text, css){
+    exports.measure = function(text, css, parent){
         var span = document.getElementById(MEASURE_SPAN_ID);
         if(!span){
             span = document.createElement('span');
             span.style.visibility = 'hidden';
             span.style.position = 'absolute';
+            span.id = MEASURE_SPAN_ID;
 
-            document.body.appendChild(span);
+            (parent||document.body).appendChild(span);
         }
 
         span.className = css||'';
