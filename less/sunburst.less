@@ -1,0 +1,73 @@
+@import '_base';
+
+.datassist .sunburst {
+  .arc {
+    stroke-width: 0px;
+
+    &.selected {
+      stroke-width: 2px;
+    }
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  line {
+    stroke: #aaa;
+    stroke-dasharray: 3
+  }
+
+  text {
+    .datassist-font-face;
+  }
+
+  .sunburst-text-measure {
+    .datassist-font-face;
+  }
+
+  .cat-1 {
+    fill: #6cbb3c;
+    stroke: #31541b;
+
+    &.selected {
+      fill: #93ff52;
+    }
+  }
+
+  .cat-2 {
+    fill: #8a3cba;
+    stroke: #3e1b54;
+
+    &.selected {
+      fill: #bd52ff;
+    }
+  }
+
+  .cat-3 {
+    fill: #ba3c81;
+    stroke: #541b3b;
+
+    &.selected {
+      fill: #ff52b1;
+    }
+  }
+
+  .cat-4 {
+    fill: #3c81ba;
+    stroke: #1b3b54;
+
+    &.selected {
+      fill: #52b1ff;
+    }
+  }
+
+  .cat-5 {
+    fill: #ba753c;
+    stroke: #54351b;
+
+    &.selected {
+      fill: #ffa052;
+    }
+  }
+}
