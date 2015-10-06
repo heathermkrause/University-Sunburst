@@ -14,24 +14,11 @@ module.exports = function (grunt) {
         copy: {
             dist : {
                 options : {
-                    process : function(content, srcpath){
-                        if(srcpath == 'index.html'){
-                            // week place as we depends on markup very much
-                            content = content
-                                .replace('libs/requirejs/', '')
-                                .replace('app/app', 'app')
-                                .replace('<link rel="stylesheet/less" type="text/css" href="less/app.less"/>', '<link rel="stylesheet" type="text/css" href="app.css"/>')
-                                .replace('<script src="libs/less/dist/less.js"></script>', '')
-                                .replace("<script>var require = { urlArgs : 'bust=' + Date.now()}</script>", '');
-                        }
-
-                        return content;
-                    }
                 },
 
                 files : [
                     {
-                        src : 'index.html',
+                        src : 'index-dist.html',
                         dest : './dist/index.html',
                     },
                     {src : 'libs/requirejs/require.js', dest : 'dist/require.js'}
@@ -43,9 +30,9 @@ module.exports = function (grunt) {
             compile : {
                 options : {
                     baseUrl : './app',
-                    out : 'dist/app.js',
-                    name : 'app',
-                    mainConfigFile : 'app/app.js',
+                    out : 'dist/datassist.js',
+                    name : 'datassist',
+                    mainConfigFile : 'app/datassist.js',
                     wrap : true
                 }
             }

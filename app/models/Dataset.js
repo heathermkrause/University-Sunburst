@@ -1,4 +1,4 @@
-define(['exports', 'text!data/university.json', 'lodash/collection/find', 'lodash/collection/map'], function (exports, uds, find, map) {
+define(['exports', 'text!data/university.json'], function (exports, uds) {
     var ds = JSON.parse(uds);
 
     /**
@@ -7,7 +7,7 @@ define(['exports', 'text!data/university.json', 'lodash/collection/find', 'lodas
      * @param arr
      */
     function byId(arr, id){
-        return find(arr, function(d){ return d.id == id});
+        return arr.find(function(d){ return d.id == id});
     }
 
     /**
@@ -15,7 +15,7 @@ define(['exports', 'text!data/university.json', 'lodash/collection/find', 'lodas
      * @returns {Array}
      */
     exports.getUniversities = function () {
-        return map(ds.universities, function (d) {
+        return ds.universities.map(function (d) {
             return { id : d.id, name: d.name}
         });
     }
@@ -33,9 +33,20 @@ define(['exports', 'text!data/university.json', 'lodash/collection/find', 'lodas
     }
 
     /**
+     * Returns category for university specified by university id and category id
+     *
+     * @param uid       ID of the university
+     * @param catid     ID of the category
+     * @returns {Array}
+     */
+    exports.getCategory = function (uid, catid) {
+        return byId(byId(ds.universities, uid).categories, catid);
+    }
+
+    /**
      * Returns all categories with indicators for particular university
      * @param university
-     */
+`     */
     exports.getCategories = function(uid){
         return byId(ds.universities, uid).categories;
     }

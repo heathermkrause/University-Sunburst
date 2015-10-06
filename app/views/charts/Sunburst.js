@@ -1,11 +1,11 @@
-define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'], function(d3, HtmlUtil, extend, map){
+define(["d3"], function () {
 
     /**
      * Toggles selection to the arc specified by arcNode
      *
      * @param   arcNode     HTMLElement that should be selected.
      */
-    function selectArc(arcNode){
+    function selectArc(arcNode) {
         d3.select(arcNode.parentNode).selectAll('.arc').classed('selected', false);
         d3.select(arcNode).classed('selected', true);
     }
@@ -14,12 +14,35 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
      * Creates d3 arc generator
      * @param       scaleSize
      */
-    function arc(scaleSize){
+    function arc(scaleSize) {
         return d3.svg.arc()
             .innerRadius(0)
-            .outerRadius(function(d){ return scaleSize(d.size)})
-            .startAngle(function(d){ return d.startAngle; })
-            .endAngle(function(d) { return d.startAngle + d.deltaAngle; });
+            .outerRadius(function (d) { return scaleSize(d.size)})
+            .startAngle(function (d) { return d.startAngle; })
+            .endAngle(function (d) { return d.startAngle + d.deltaAngle; });
+    }
+
+    /**
+     * Wraps provided callback to be called with extra arguments
+     * @param callback
+     */
+    function wrapWith(/*callback, ..opts?*/) {
+        var args = Array.prototype.slice.call(arguments, 0),
+            callback = args.shift();
+
+        return function (d) {
+            return callback.apply(this, [d].concat(args));
+        }
+    }
+
+    /**
+     * Returns CSS class for particular ray
+     *
+     * @param d
+     * @return {string}
+     */
+    function rayClass(d){
+        return typeof d.id != 'undefined' ? 'id-' + d.id : '';
     }
 
     /**
@@ -30,23 +53,31 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
      * @param opts
      * @constructor
      */
-    function Sunburt(el, opts){
+    function Sunburt(el, opts) {
         this.el = el;
 
         this.opts = {
-            width : 599,
+            width: 599,
             height: 500,
-            chartOffset : 60,
+            chartOffset: 60,
             // minimum size of the bar in chart
-            minOuterRadius : 40,
+            minOuterRadius: 40,
             // offset for legend text. decreases maximum radius to radius where labels are located
-            legedLabelOffset : 40,
+            labelOffset: 40,
 
-            barExtraCss : null
+            rayClass : rayClass,
+
+            mouseOut: function () { /* empty implementation */},
+            mouseOverRay: function () { /* empty implementation */ }
         }
 
-        if(opts){
-            this.opts = extend(this.opts, opts);
+        // overrides default properties with provided (if any)
+        if (opts) {
+            for (p in opts) {
+                if (opts.hasOwnProperty(p)) {
+                    this.opts[p] = opts[p]
+                }
+            }
         }
     }
 
@@ -55,7 +86,7 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
      * TODO deal more correct with legendLabelOffset - currently it is offset from outer radius that looks confusing
      * @param dataset
      */
-    Sunburt.prototype.draw = function(dataset){
+    Sunburt.prototype.draw = function (dataset) {
         this.el.innerHTML = '';
 
         var _this = this,
@@ -65,77 +96,95 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
             height = opts.height - opts.chartOffset * 2;
 
         var radius = Math.min(width, height) / 2, // chart radius
-            R = radius + opts.chartOffset - opts.legedLabelOffset; // outer radius for legend
+            R = radius + opts.chartOffset - opts.labelOffset; // outer radius for legend
 
         // creates bar sizes scale from sizes range to radius value in pixels
-        var sizes = map(dataset, function(d){ return d.size;}),
+        var sizes = dataset.map(function (d) { return d.size;}),
             maxSize = Math.max.apply(Math, sizes),
             minSize = Math.min.apply(Math, sizes),
             scaleSize = d3.scale.linear().domain([minSize, maxSize]).range([opts.minOuterRadius, radius]);
 
+        var range = d3.range(minSize, maxSize, (maxSize - minSize) / 3);
+        range.push(maxSize);
+
         // prepares svg
         var svg = d3.select(this.el).append('svg')
-            .attr('class', 'viz sunburst')
+            .attr('class', 'datassist-sunburst')
             .attr('width', opts.width)
             .attr('height', opts.height);
 
-        var viz = svg
+        var g = svg.append('g').attr('transform', 'translate(' + opts.width / 2 + ', ' + opts.height / 2 + ')')
+            .on('mouseleave', opts.mouseOut);
+
+        var vizScale = g.append('g');
+
+        vizScale.append('circle')
+            .attr('r', radius)
+            .attr('fill', '#f2f2f2')
+        ;
+
+        vizScale.selectAll('circle.scale').data(range)
+            .enter().append('circle')
+            .attr('r', function (d) { return scaleSize(d); })
+            .attr('stroke', '#cecece')
+            .attr('fill', 'none')
+        ;
+
+        vizScale.selectAll('text').data(range).enter().append('text')
+            .text(function (d) { return Math.round(d)})
+            .attr('y', function (d) { return scaleSize(d)});
+
+        var viz = g
             .append('g')
             .attr('class', 'chart')
-            .attr('transform', 'translate(' + opts.width / 2 + ', ' + opts.height / 2 + ')')
             .selectAll('path').data(dataset).enter();
 
         var bar = viz
             .append('path')
             .attr('d', arc(scaleSize))
-            .attr('class', opts.barExtraCss)
-            .attr('data-id', function(d){ return d.id; }) // optional
+            .attr('class', opts.rayClass)
+            .attr('data-id', function (d) { return d.id; }) // optional
             .classed('arc', true)
-
-        if(opts.selectable) {
-            bar.on('click', function (d) {
-                selectArc(this);
-
-                this.dispatchEvent(new CustomEvent('select', {
-                    detail: {value: this.getAttribute('data-id')},
-                    bubbles: true
-                }));
-            });
-        }
+            .on('mouseover', opts.mouseOverRay)
+            // TODO: move to custom handlers. longname is not always available
+            .append('title').text(function (d) { return d.longname ? d.size + '' + d.longname : ''; })
 
         /// TODO: Updates lines and text positioning to make it more readable and prevent copy pasting, and extract constants to options
         viz.append('line')
-            .attr('x1', function(d){ return (scaleSize(d.size) + 5) * Math.sin(d.startAngle + d.deltaAngle / 2); })
-            .attr('y1', function(d){ return -(scaleSize(d.size) + 5) * Math.cos(d.startAngle + d.deltaAngle / 2); })
-            .attr('x2', function(d){ return Math.max(R, (scaleSize(d.size) + 20)) * Math.sin(d.startAngle + d.deltaAngle / 2); })
-            .attr('y2', function(d){ return -Math.max(R, (scaleSize(d.size) + 20)) * Math.cos(d.startAngle + d.deltaAngle / 2); });
+            .attr('x1', function (d) { return (scaleSize(d.size) + 5) * Math.sin(d.startAngle + d.deltaAngle / 2); })
+            .attr('y1', function (d) { return -(scaleSize(d.size) + 5) * Math.cos(d.startAngle + d.deltaAngle / 2); })
+            .attr('x2', function (d) { return Math.min(R, (scaleSize(d.size) + 20)) * Math.sin(d.startAngle + d.deltaAngle / 2); })
+            .attr('y2', function (d) { return -Math.min(R, (scaleSize(d.size) + 20)) * Math.cos(d.startAngle + d.deltaAngle / 2); });
 
 
         var textDelta = 5;
-        function textX(d){
+
+        function textX(d) {
             var angle = d.startAngle + d.deltaAngle / 2;
 
-            return Math.max((R + textDelta), scaleSize(d.size) + 20 + textDelta) * Math.sin(angle) - (angle > Math.PI ? HtmlUtil.measure(text(d), 'sunburst-text-measure', this.el) : 0);
+//            return Math.max((R + textDelta), scaleSize(d.size) + 20 + textDelta) * Math.sin(angle) - (angle > Math.PI ? HtmlUtil.measure(text(d), 'sunburst-text-measure', this.el) : 0);
+            return Math.min((R + textDelta), scaleSize(d.size) + 20 + textDelta) * Math.sin(angle);
         }
 
-        function textY(d){
+        function textY(d) {
             var angle = d.startAngle + d.deltaAngle / 2;
 
-            var y = -(Math.max(R + textDelta, scaleSize(d.size) + 20 + textDelta)) * Math.cos(angle);
-            if(angle > Math.PI / 2 && angle < 3 * Math.PI / 2){
+            var y = -(Math.min(R + textDelta, scaleSize(d.size) + 20 + textDelta)) * Math.cos(angle);
+            if (angle > Math.PI / 2 && angle < 3 * Math.PI / 2) {
                 y += 10;
             }
 
             return y;
         }
 
-        function text(d){
+        function text(d) {
             return d.name + ' (' + d.size + ')';
         }
 
         viz.append('text')
             .attr('x', textX)
             .attr('y', textY)
+            .attr('text-anchor', function (d) { return d.startAngle + d.deltaAngle / 2 > Math.PI ? 'end' : null})
             .text(text)
     }
 
@@ -143,7 +192,7 @@ define(["d3", "util/HtmlUtil", 'lodash/object/extend', 'lodash/collection/map'],
      * Selects arc by its ID
      * @param id
      */
-    Sunburt.prototype.select = function(id){
+    Sunburt.prototype.select = function (id) {
         selectArc(d3.select(this.el).select('.arc[data-id="' + id + '"]').node());
     }
 

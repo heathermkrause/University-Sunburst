@@ -2,7 +2,7 @@ define([
     "text!./templates/Option1.html",
     "views/charts/Sunburst",
     "views/charts/Barchart",
-    "transformers/CategoriesTransformer",
+    "transformers/categoriesSunburst",
     "transformers/IndicatorsBarchartTransformer",
     "models/App",
     "util/query",

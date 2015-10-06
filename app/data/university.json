@@ -1,140 +1,131 @@
 {
   "universities": [
     {
-      "id" : 1,
-      "name" : "Alogoma",
-      "categories" : [
+      "id": 1,
+      "name": "Alogoma",
+      "categories": [
         {
-          "id" : 1,
-          "name" : "ACCESS INDICATORS",
-          "score" : 17,
-          "indicators" : [
-            { "name" : "First Gen", "values" : [ { "type" : "PERCENT", "value" : 34}, { "type" : "RANK", "value" : 18} , { "type" : "STANDARDIZED", "value" : 1}] },
-            { "name" : "Aboriginal", "values" : [ { "type" : "PERCENT", "value" : 11}, { "type" : "RANK", "value" : 20} , { "type" : "STANDARDIZED", "value" : 2.4}] },
-            { "name" : "French", "values" : [ { "type" : "PERCENT", "value" : 2}, { "type" : "RANK", "value" : 16} , { "type" : "STANDARDIZED", "value" : -0.3}] },
-            { "name" : "OSAP", "values" : [ { "type" : "PERCENT", "value" : 63}, { "type" : "RANK", "value" : 14} , { "type" : "STANDARDIZED", "value" : 0.7}] },
-            { "name" : "PT", "values" : [ { "type" : "PERCENT", "value" : 21}, { "type" : "RANK", "value" : 16} , { "type" : "STANDARDIZED", "value" : 0.8}] },
-            { "name" : "Acceptance", "values" : [ { "type" : "PERCENT", "value" : 21}, { "type" : "RANK", "value" : 17} , { "type" : "STANDARDIZED", "value" : -0.8}] },
-            { "name" : "Transfer", "values" : [ { "type" : "PERCENT", "value" : 21}, { "type" : "RANK", "value" : 19} , { "type" : "STANDARDIZED", "value" : 1.5}] }
+          "id": 1,
+          "name": "ACCESS INDICATORS",
+          "score": 17,
+          "indicators": [
+            {"name": "First Generation", "longname" : "% of Students who are First Generation Students", "value": 18},
+            {"name": "Aboriginal", "longname" : "% of Students who are Aboriginal", "value": 20},
+            {"name": "Francophone", "longname" : "% of Students who are French Speaking", "value": 16},
+            {"name": "OSAP", "longname" : "OSAP Participation Rate", "value": 14},
+            {"name": "Part time", "longname" : "% of Students Studying PT", "value": 16},
+            {"name": "Transfer Students", "longname" : "Transfer Student Applicant to Registrant Ratio ", "value": 17},
+            {"name": "Transfer Credit", "longname" : "% of Registrants with Transferred Credits", "value": 19}
           ]
         },
-
         {
-          "id" : 2,
-          "name" : "SUPPLY AND DEMAND",
-          "score" : 8,
-          "indicators" : [
-            { "name" : "A:R", "values" : [ { "type" : "PERCENT", "value" : 4.8}, { "type" : "RANK", "value" : 5} , { "type" : "STANDARDIZED", "value" : -0.67}] },
-            { "name" : "1st", "values" : [ { "type" : "PERCENT", "value" : 27}, { "type" : "RANK", "value" : 11} , { "type" : "STANDARDIZED", "value" : -0.15}] },
-            { "name" : "ROC", "values" : [ { "type" : "PERCENT", "value" : 0}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -1.11}] },
-            { "name" : "Int'l", "values" : [ { "type" : "PERCENT", "value" : 18}, { "type" : "RANK", "value" : 20} , { "type" : "STANDARDIZED", "value" : 2.63}] },
-            { "name" : "Marks", "values" : [ { "type" : "PERCENT", "value" : 82}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -2.47}] }
+          "id": 2,
+          "name": "SUPPLY AND DEMAND",
+          "score": 8,
+          "indicators": [
+            {"name": "A:R", "value": 5},
+            {"name": "1st", "value": 11},
+            {"name": "ROC", "value": 1},
+            {"name": "Int'l", "value": 20},
+            {"name": "Marks", "value": 1}
           ]
         },
-
         {
-          "id" : 3,
-          "name" : "LEARNING JOURNEY",
-          "score" : 9,
-          "indicators" : [
-            { "name" : "Renetion", "values" : [ { "type" : "PERCENT", "value" : 63}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -3.32}] },
-            { "name" : "Grad", "values" : [ { "type" : "PERCENT", "value" : 50}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -2.93}] },
-            { "name" : "< 30", "values" : [ { "type" : "PERCENT", "value" : 76}, { "type" : "RANK", "value" : 19} , { "type" : "STANDARDIZED", "value" : 1.45}] },
-            { "name" : "Good", "values" : [ { "type" : "PERCENT", "value" : 83}, { "type" : "RANK", "value" : 12} , { "type" : "STANDARDIZED", "value" : 0.39}] },
-            { "name" : "Repeat", "values" : [ { "type" : "PERCENT", "value" : 77}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : -0.07}] }
+          "id": 3,
+          "name": "LEARNING JOURNEY",
+          "score": 9,
+          "indicators": [
+            {"name": "Renetion", "value": 1},
+            {"name": "Grad", "value": 1},
+            {"name": "< 30", "value": 19},
+            {"name": "Good", "value": 12},
+            {"name": "Repeat", "value": 10}
           ]
         },
-
         {
-          "id" : 4,
-          "name" : "POST GRADUATES OUTCOMES",
-          "score" : 2,
-          "indicators" : [
-            { "name" : "Emp", "values" : [ { "type" : "PERCENT", "value" : 88}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -2.5}] },
-            { "name" : "$", "values" : [ { "type" : "PERCENT", "value" : 39400}, { "type" : "RANK", "value" : 5} , { "type" : "STANDARDIZED", "value" : -0.6}] },
-            { "name" : "Default", "values" : [ { "type" : "PERCENT", "value" : -15}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -3.4}] }
+          "id": 4,
+          "name": "POST GRADUATES OUTCOMES",
+          "score": 2,
+          "indicators": [
+            {"name": "Emp", "value": 1},
+            {"name": "$", "value": 5},
+            {"name": "Default", "value": 1}
           ]
         },
-
         {
-          "id" : 5,
-          "name" : "RESEARCH INTENSITY",
-          "score" : 2,
-          "indicators" : [
-            { "name" : "% PhDs", "values" : [ { "type" : "PERCENT", "value" : 0}, { "type" : "RANK", "value" : 3} , { "type" : "STANDARDIZED", "value" : -1.1}] },
-            { "name" : "$", "values" : [ { "type" : "PERCENT", "value" : 1.658}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -0.6}] },
-            { "name" : "Citiations", "values" : [ { "type" : "PERCENT", "value" : null}, { "type" : "RANK", "value" : 3} , { "type" : "STANDARDIZED", "value" : -0.6}] },
-            { "name" : "H-Index", "values" : [ { "type" : "PERCENT", "value" : 0.3}, { "type" : "RANK", "value" : 1} , { "type" : "STANDARDIZED", "value" : -2}] }
+          "id": 5,
+          "name": "RESEARCH INTENSITY",
+          "score": 2,
+          "indicators": [
+            {"name": "% PhDs", "value": 3},
+            {"name": "$", "value": 1},
+            {"name": "Citiations", "value": 3},
+            {"name": "H-Index", "value": 1}
           ]
         }
       ]
     },
-
     {
-      "id" : 2,
-      "name" : "Brock",
-      "categories" : [
+      "id": 2,
+      "name": "Brock",
+      "categories": [
         {
-          "id" : 1,
-          "name" : "ACCESS INDICATORS",
-          "score" : 11,
-          "indicators" : [
-            { "name" : "First Gen", "values" : [ { "type" : "PERCENT", "value" : 29}, { "type" : "RANK", "value" : 17} , { "type" : "STANDARDIZED", "value" : 0.6}] },
-            { "name" : "Aboriginal", "values" : [ { "type" : "PERCENT", "value" : 2}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : -0.5}] },
-            { "name" : "French", "values" : [ { "type" : "PERCENT", "value" : 1}, { "type" : "RANK", "value" : 6} , { "type" : "STANDARDIZED", "value" : -0.4}] },
-            { "name" : "OSAP", "values" : [ { "type" : "PERCENT", "value" : 57}, { "type" : "RANK", "value" : 11} , { "type" : "STANDARDIZED", "value" : 0.1}] },
-            { "name" : "PT", "values" : [ { "type" : "PERCENT", "value" : 10}, { "type" : "RANK", "value" : 7} , { "type" : "STANDARDIZED", "value" : -0.5}] },
-            { "name" : "Acceptance", "values" : [ { "type" : "PERCENT", "value" : 10}, { "type" : "RANK", "value" : 15} , { "type" : "STANDARDIZED", "value" : 0.5}] },
-            { "name" : "Transfer", "values" : [ { "type" : "PERCENT", "value" : 5}, { "type" : "RANK", "value" : 8} , { "type" : "STANDARDIZED", "value" : -0.5}] }
+          "id": 1,
+          "name": "ACCESS INDICATORS",
+          "score": 11,
+          "indicators": [
+            {"name": "First Generation", "longname" : "% of Students who are First Generation Students", "value": 17},
+            {"name": "Aboriginal", "longname" : "% of Students who are Aboriginal", "value": 10},
+            {"name": "Francophone", "longname" : "% of Students who are French Speaking", "value": 6},
+            {"name": "OSAP", "longname" : "OSAP Participation Rate", "value": 11},
+            {"name": "Part time", "longname" : "% of Students Studying PT", "value": 7},
+            {"name": "Transfer Students", "longname" : "Transfer Student Applicant to Registrant Ratio ", "value": 15},
+            {"name": "Transfer Credit", "longname" : "% of Registrants with Transferred Credits", "value": 8}
           ]
         },
-
         {
-          "id" : 2,
-          "name" : "SUPPLY AND DEMAND",
-          "score" : 6,
-          "indicators" : [
-            { "name" : "A:R", "values" : [ { "type" : "PERCENT", "value" : 5.7}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : -0.03}] },
-            { "name" : "1st", "values" : [ { "type" : "PERCENT", "value" : 21}, { "type" : "RANK", "value" : 3} , { "type" : "STANDARDIZED", "value" : -0.82}] },
-            { "name" : "ROC", "values" : [ { "type" : "PERCENT", "value" : 1}, { "type" : "RANK", "value" : 3} , { "type" : "STANDARDIZED", "value" : -0.92}] },
-            { "name" : "Int'l", "values" : [ { "type" : "PERCENT", "value" : 5}, { "type" : "RANK", "value" : 8} , { "type" : "STANDARDIZED", "value" : -0.35}] },
-            { "name" : "Marks", "values" : [ { "type" : "PERCENT", "value" : 95}, { "type" : "RANK", "value" : 7} , { "type" : "STANDARDIZED", "value" : -0.47}] }
+          "id": 2,
+          "name": "SUPPLY AND DEMAND",
+          "score": 6,
+          "indicators": [
+            {"name": "A:R", "value": 10},
+            {"name": "1st", "value": 3},
+            {"name": "ROC", "value": 3},
+            {"name": "Int'l", "value": 8},
+            {"name": "Marks", "value": 7}
           ]
         },
-
         {
-          "id" : 3,
-          "name" : "LEARNING JOURNEY",
-          "score" : 11,
-          "indicators" : [
-            { "name" : "Renetion", "values" : [ { "type" : "PERCENT", "value" : 87}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : 0.10}] },
-            { "name" : "Grad", "values" : [ { "type" : "PERCENT", "value" : 75}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : 0.02}] },
-            { "name" : "< 30", "values" : [ { "type" : "PERCENT", "value" : 40}, { "type" : "RANK", "value" : 6} , { "type" : "STANDARDIZED", "value" : -0.79}] },
-            { "name" : "Good", "values" : [ { "type" : "PERCENT", "value" : 85}, { "type" : "RANK", "value" : 13} , { "type" : "STANDARDIZED", "value" : 0.66}] },
-            { "name" : "Repeat", "values" : [ { "type" : "PERCENT", "value" : 82}, { "type" : "RANK", "value" : 15} , { "type" : "STANDARDIZED", "value" : 0.68}] }
+          "id": 3,
+          "name": "LEARNING JOURNEY",
+          "score": 11,
+          "indicators": [
+            {"name": "Renetion", "value": 10},
+            {"name": "Grad", "value": 10},
+            {"name": "< 30", "value": 6},
+            {"name": "Good", "value": 13},
+            {"name": "Repeat", "value": 15}
           ]
         },
-
         {
-          "id" : 4,
-          "name" : "POST GRADUATES OUTCOMES",
-          "score" : 10,
-          "indicators" : [
-            { "name" : "Emp", "values" : [ { "type" : "PERCENT", "value" : 94}, { "type" : "RANK", "value" : 14} , { "type" : "STANDARDIZED", "value" : 0.5}] },
-            { "name" : "$", "values" : [ { "type" : "PERCENT", "value" : 39750}, { "type" : "RANK", "value" : 6} , { "type" : "STANDARDIZED", "value" : -0.6}] },
-            { "name" : "Default", "values" : [ { "type" : "PERCENT", "value" : -5}, { "type" : "RANK", "value" : 10} , { "type" : "STANDARDIZED", "value" : 0.1}] }
+          "id": 4,
+          "name": "POST GRADUATES OUTCOMES",
+          "score": 10,
+          "indicators": [
+            {"name": "Emp", "value": 14},
+            {"name": "$", "value": 6},
+            {"name": "Default", "value": 10}
           ]
         },
-
         {
-          "id" : 5,
-          "name" : "RESEARCH INTENSITY",
-          "score" : 7,
-          "indicators" : [
-            { "name" : "% PhDs", "values" : [ { "type" : "PERCENT", "value" : 0}, { "type" : "RANK", "value" : 4} , { "type" : "STANDARDIZED", "value" : -0.9}] },
-            { "name" : "$", "values" : [ { "type" : "PERCENT", "value" : 16.391}, { "type" : "RANK", "value" : 7} , { "type" : "STANDARDIZED", "value" : -0.5}] },
-            { "name" : "Citiations", "values" : [ { "type" : "PERCENT", "value" : 7.526}, { "type" : "RANK", "value" : 9} , { "type" : "STANDARDIZED", "value" : -0.5}] },
-            { "name" : "H-Index", "values" : [ { "type" : "PERCENT", "value" : 0.7}, { "type" : "RANK", "value" : 7} , { "type" : "STANDARDIZED", "value" : -0.6}] }
+          "id": 5,
+          "name": "RESEARCH INTENSITY",
+          "score": 7,
+          "indicators": [
+            {"name": "% PhDs", "value": 4},
+            {"name": "$", "value": 7},
+            {"name": "Citiations", "value": 9},
+            {"name": "H-Index", "value": 7}
           ]
         }
       ]
