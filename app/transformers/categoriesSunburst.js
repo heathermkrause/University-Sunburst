@@ -15,11 +15,14 @@ define([], function () {
 
 
         return dataset.getCategories(university).map(function (d, index) {
+            var startAngle = index * (arcDelta + arcAngle);
+
             return {
                 id: d.id,
                 name: d.name,
                 size: d.score,
-                startAngle: index * (arcDelta + arcAngle),
+                startAngle: startAngle,
+                endAngle : startAngle + arcAngle,
                 deltaAngle: arcAngle
             }
         });

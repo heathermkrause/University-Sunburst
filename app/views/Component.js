@@ -3,18 +3,29 @@ define([
     'models/Dataset',
     'models/App',
     'views/charts/Sunburst',
+    'views/Dropdown',
     'transformers/categoriesSunburst',
     'transformers/indicatorsSunburst',
     'util/query',
     'util/HtmlUtil',
     'd3'
-], function (template, dataset, App, Sunburst, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
+], function (template, dataset, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
 
     var MODE_INDICATORS = 'indicators',
         MODE_CATEGORIES = 'categories';
 
     // TODO: not very good place for definition.
-    var ARC_DELTA = 0.2;
+    var CATEGORY_ARC_DELTA = 0.1,
+        INDICATOR_ARC_DELTA = 0.08;
+
+    // Fill colors mapped to category ID
+    var FILL_COLORS = {
+        1 : '#324d5c',
+        2 : '#46B29D',
+        3 : '#F0CA4D',
+        4 : '#E37B40',
+        5 : '#300A57'
+    }
 
     /**
      * Function that initializes and renders full compoenent into provided element
@@ -23,7 +34,7 @@ define([
     return function (el) {
         // Defines application object that will be responsible for holding current state and
         // emitting change events
-        var app = new App({university: 1, category: 1});
+        var app = new App({university: 1});
 
         /**
          * Options defined for categories sunburst
@@ -31,12 +42,23 @@ define([
         var themesOpts = {
             width: 600,
             height: 600,
+
+            maxValue: 20,
+
             mouseOverRay: function (d) {
-                app.set('category', d.id);
-                app.set('mode', MODE_INDICATORS);
+                app.setCategory(d.id, d.startAngle, d.endAngle);
             },
-            rayClass : function(d){
+
+            tooltipText : function(d){
+                return (d.longname||d.name) + '<br/>Score: ' + d.size;
+            },
+
+            rayClass: function (d) {
                 return 'cat-' + d.id;
+            },
+
+            fillColor : function(d){
+                return FILL_COLORS[d.id];
             }
         };
 
@@ -46,12 +68,30 @@ define([
         var indicatorsOpts = {
             width: 600,
             height: 600,
+
+            maxValue: 20,
+
             mouseOut: function (d) {
                 app.set('mode', MODE_CATEGORIES);
             },
-            rayClass : function(d){
+
+            tooltipText : function(d){
+                return (d.longname||d.name )+ "<br/>Score: " + d.size;
+            },
+
+            rayClass: function (d) {
                 return 'cat-' + d.catid;
-            }
+            },
+
+            fillColor : function(d){
+                return FILL_COLORS[d.catid];
+            },
+
+            strokeColor : function(d){
+                return d3.rgb(FILL_COLORS[d.catid]).darker(2);
+            },
+
+            useGradient : true
         }
 
 
@@ -59,46 +99,42 @@ define([
 
         var universityNode = query.one('.datassist-university', el);
 
+        var universitydd = dropdown(universityNode);
+
         HtmlUtil.populateDropdown(universityNode, dataset.getUniversities());
 
-        universityNode.addEventListener('change', function(){
+        universitydd.setValue(app.university);
+
+        universityNode.addEventListener('change', function () {
             app.set('university', universityNode.value);
         }, false);
 
         // creates charts
 
         var themesChart = new Sunburst(query.one('.datassist-categories', el), themesOpts);
-
         var indicatorsChart = new Sunburst(query.one('.datassist-indicators', el), indicatorsOpts);
 
-        function drawThemes(){
-            themesChart.draw(categoriesSunburst(dataset, app.university, ARC_DELTA));
+        function drawThemes() {
+            var categoriesDataset = categoriesSunburst(dataset, app.university, CATEGORY_ARC_DELTA);
+
+            themesChart.draw(categoriesDataset);
+
+            var category = categoriesDataset[0];
+            app.setCategory(category.id, category.startAngle, category.endAngle);
         }
 
-        function drawIndicators(){
-            indicatorsChart.draw(indicatorsSunburst(dataset, app.university, app.category, ARC_DELTA));
+        function drawIndicators() {
+            indicatorsChart.draw(indicatorsSunburst(dataset, app.university, app.category, INDICATOR_ARC_DELTA, app.indStartAngle, app.indEndAngle));
         }
 
-        drawThemes();
-
-        // binds modes: indicators / categories
-        app.observe('mode', function () {
-            if (app.mode == MODE_INDICATORS) {
-                d3.select(themesChart.el).transition().delay(100).duration(700).style('opacity', 0);
-                d3.select(indicatorsChart.el).style('display', 'block').transition().delay(100).duration(900).style('opacity', 1);
-            }else{
-                d3.select(themesChart.el).transition().delay(100).duration(900).style('opacity', 1);
-                d3.select(indicatorsChart.el).transition().delay(100).duration(700).style('opacity', 0).each('end', function(){
-                    d3.select(indicatorsChart.el).style('display', 'none');
-                });
-            }
-        });
-
-        app.observe('category', function(){
+        app.observe('category', function () {
             drawIndicators();
         });
-        app.observe('university', function(){
+        app.observe('university', function () {
             drawThemes();
         });
+
+
+        drawThemes();
     }
 });

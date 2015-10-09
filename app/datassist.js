@@ -8,6 +8,5 @@ require({
     }
 }, ['bootstrap', 'domReady!'], function (bootstrap) {
 
-    bootstrap(document.getElementById('col1'));
-    bootstrap(document.getElementById('col2'));
+    bootstrap(document.getElementById('embed'));
 });

@@ -1,4 +1,4 @@
-define(["d3"], function () {
+define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip) {
 
     /**
      * Toggles selection to the arc specified by arcNode
@@ -23,6 +23,51 @@ define(["d3"], function () {
     }
 
     /**
+     * Returns CSS class for particular ray
+     *
+     * @param d
+     * @return {string}
+     */
+    function rayClass(d) {
+        return typeof d.id != 'undefined' ? 'id-' + d.id : '';
+    }
+
+    /**
+     * Returns fill color that should be used for particular ray
+     */
+    function fillColor(d) {
+        return '#0088cc';
+    }
+
+    /**
+     * Returns stroke color for particular ray
+     */
+    function strokeColor(d){
+        return '#444';
+    }
+
+    /**
+     * Shows tooltip at the specified coordinates. For text value uses either default template or custom function provided in options
+     *
+     * @param d
+     * @param ox
+     * @param oy
+     * @param tooltip
+     */
+    function showTooltip(d, ox, oy, tooltip, opts) {
+        var xy = d3.mouse(this);
+
+        tooltip.show(opts.tooltipText(d), xy[1] + oy + 5 + 'px', xy[0] + ox + 5 + 'px');
+    }
+
+    /**
+     * Default function that returns tooltip text for each 'd'
+     */
+    function tooltipText(d) {
+        return d.name + ': ' + d.size;
+    }
+
+    /**
      * Wraps provided callback to be called with extra arguments
      * @param callback
      */
@@ -33,16 +78,6 @@ define(["d3"], function () {
         return function (d) {
             return callback.apply(this, [d].concat(args));
         }
-    }
-
-    /**
-     * Returns CSS class for particular ray
-     *
-     * @param d
-     * @return {string}
-     */
-    function rayClass(d){
-        return typeof d.id != 'undefined' ? 'id-' + d.id : '';
     }
 
     /**
@@ -65,7 +100,22 @@ define(["d3"], function () {
             // offset for legend text. decreases maximum radius to radius where labels are located
             labelOffset: 40,
 
-            rayClass : rayClass,
+            // maximum possible value of the data. If not defined - maxValue is taken as maximum among existing data
+            // otherwise uses privided value
+            // this allows to create scaleSize independently from given data
+            maxValue: null,
+
+            // Count of the levels on background scale
+            scaleLevels: 4,
+
+            tooltipText: tooltipText,
+
+            rayClass: rayClass,
+
+            fillColor: fillColor,
+            strokeColor : strokeColor,
+
+            useGradient: false,
 
             mouseOut: function () { /* empty implementation */},
             mouseOverRay: function () { /* empty implementation */ }
@@ -100,21 +150,63 @@ define(["d3"], function () {
 
         // creates bar sizes scale from sizes range to radius value in pixels
         var sizes = dataset.map(function (d) { return d.size;}),
-            maxSize = Math.max.apply(Math, sizes),
-            minSize = Math.min.apply(Math, sizes),
-            scaleSize = d3.scale.linear().domain([minSize, maxSize]).range([opts.minOuterRadius, radius]);
+            maxSize = opts.maxValue || Math.max.apply(Math, sizes),
+            minSize = Math.min.apply(Math, sizes);
+        //    scaleSize = d3.scale.linear().domain([minSize, maxSize]).range([opts.minOuterRadius, radius]);
 
-        var range = d3.range(minSize, maxSize, (maxSize - minSize) / 3);
-        range.push(maxSize);
+        var scaleSize = d3.scale.linear().domain([0, maxSize]).range([opts.minOuterRadius, radius]);
+
+        var range = d3.range(maxSize, 0, -opts.scaleLevels).reverse();
+
+        var outer = this.el.appendChild(document.createElement('div'));
+
+        var tooltip = new Tooltip(outer);
 
         // prepares svg
-        var svg = d3.select(this.el).append('svg')
+        var svg = d3.select(outer).append('svg')
             .attr('class', 'datassist-sunburst')
             .attr('width', opts.width)
             .attr('height', opts.height);
 
+
+        /// GRADIENTS {{{
+        if (opts.useGradient) {
+            var grad = svg.selectAll('radialGradient').data(dataset).enter().append("radialGradient")
+                .attr("id", function (d, index) { return 'gradient_' + index; })
+
+            grad.append('stop')
+                .attr('offset', '0%')
+                .attr('stop-color', function (d) { return opts.fillColor(d);})
+
+            grad.append('stop')
+                .attr('offset', '20%')
+                .attr('stop-color', function(d){ return d3.rgb(opts.fillColor(d)).brighter(1);})
+
+            grad.append('stop')
+                .attr('offset', '100%')
+                .attr('stop-color', function (d) { return d3.rgb(opts.fillColor(d)).darker(1);});
+        }
+
+        //svg.append("linearGradient")
+        //    .attr("id", "grad1")
+        //    .selectAll("stop")
+        //    .data([
+        //        {offset: "0%", color: "red"},
+        //        {offset: "100%", color: "lawngreen"}
+        //    ])
+        //    .enter().append("stop")
+        //    .attr("offset", function (d) { return d.offset; })
+        //    .attr("stop-color", function (d) { return d.color; });
+
+
+        /// GRADIENTS }}}
+
+        var oX = opts.width / 2,
+            oY = opts.height / 2;
+
         var g = svg.append('g').attr('transform', 'translate(' + opts.width / 2 + ', ' + opts.height / 2 + ')')
             .on('mouseleave', opts.mouseOut);
+
 
         var vizScale = g.append('g');
 
@@ -144,10 +236,12 @@ define(["d3"], function () {
             .attr('d', arc(scaleSize))
             .attr('class', opts.rayClass)
             .attr('data-id', function (d) { return d.id; }) // optional
+            .attr('fill', opts.useGradient ? function(d, index){ return 'url(#gradient_' + index + ')' } : opts.fillColor)
+            .attr('stroke', opts.strokeColor)
             .classed('arc', true)
             .on('mouseover', opts.mouseOverRay)
-            // TODO: move to custom handlers. longname is not always available
-            .append('title').text(function (d) { return d.longname ? d.size + '' + d.longname : ''; })
+            .on('mousemove', wrapWith(showTooltip, oX, oY, tooltip, opts))
+            .on('mouseout', function () { tooltip.hide(); });
 
         /// TODO: Updates lines and text positioning to make it more readable and prevent copy pasting, and extract constants to options
         viz.append('line')
@@ -185,7 +279,7 @@ define(["d3"], function () {
             .attr('x', textX)
             .attr('y', textY)
             .attr('text-anchor', function (d) { return d.startAngle + d.deltaAngle / 2 > Math.PI ? 'end' : null})
-            .text(text)
+            .text(text);
     }
 
     /**

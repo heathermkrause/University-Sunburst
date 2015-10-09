@@ -1,8 +1,8 @@
+@import '_base';
 @import 'sunburst';
 
 .datassist {
   float: left;
-  text-align: center;
 
   &:after {
     display: block;
@@ -10,21 +10,119 @@
     content: "";
   }
 
-  .charts {
+  .datassist-charts {
     position: relative;
+    clear: left;
+    margin-top: 20px;
+  }
 
+  .dropdown {
+    position: relative;
+    float: left;
+    background-color: #fff;
+    border: 1px solid rgba(30, 30, 30, 0.2);
+    border-radius: 3px;
+    padding: 0px 40px 0px 10px;
+    height: 34px;
+    line-height: 34px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+    width: 300px;
+
+    &:hover {
+      border-color: rgba(30, 30, 30, 0.4);
+    }
+
+    .datassist-font-face;
+
+    cursor: pointer;
+
+    .text {
+      line-height: 34px;
+    }
+    .text.title {
+      color: #777;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      margin-top: -2px;
+      right: 10px;
+      display: block;
+      width: 10px;
+      height: 4px;
+      background: url('../images/arrow_down.png') no-repeat;
+    }
+
+    &.opened {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border: 1px solid rgba(50, 77, 92, 0.5);
+      border-bottom-color: transparent;
+    }
+
+    .options {
+      position: absolute;
+      display: none;
+      left: -1px;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid rgba(50, 77, 92, 0.5);
+      border-top: none;
+      box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15)
+    }
+
+    .options .item {
+      padding: 0 0 0 10px;
+      border-top: 1px solid #fafafa;
+      height: 40px;
+      line-height: 40px;
+
+      &.selected {
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.07);
+      }
+    }
+
+    &.opened .options {
+      display: block;
+    }
+
+  }
+
+  .datassist-university {
+    margin: 0 auto;
+    float: none;
+    z-index: 999;
   }
 
   .datassist-chart {
+    height: 600px;
+    width: 600px;
+    margin:0 auto;
   }
+
   .datassist-indicators {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    display: none;
   }
 
   &.datassist-indicators-mode {
   }
 }
+
+.datassist-tooltip {
+  position: absolute;
+  top: -10000px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  white-space: nowrap;
+
+  .datassist-font-face;
+}
+

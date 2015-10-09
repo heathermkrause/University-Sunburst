@@ -1,4 +1,4 @@
-define(["exports"], function(exports){
+define(["exports", "./query"], function(exports, query){
     /**
      * Populates dropdown with provided collection of an elements
      * Each element of the collection should contain id and name properties
@@ -6,13 +6,14 @@ define(["exports"], function(exports){
      * @param coll  Collection of {id : '', name : ''}
      */
     exports.populateDropdown = function(el, coll){
-        // TODO treat collection as collection of simple strings
-        for(var i = 0, l = coll.length; i < l; i++){
-            var opt = document.createElement('option');
-            opt.value = coll[i].id;
-            opt.text = coll[i].name;
+        var optsEl = query.one('.options', el);
 
-            el.appendChild(opt);
-        }
+        coll.forEach(function(item){
+            var node = optsEl.appendChild(document.createElement('div'));
+
+            node.className = 'item';
+            node.setAttribute('data-id', item.id);
+            node.innerHTML = item.name;
+        });
     }
 })
