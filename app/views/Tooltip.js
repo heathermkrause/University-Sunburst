@@ -8,7 +8,8 @@ define([], function () {
      * @constructor
      */
     function Tooltip(context) {
-        var node = this.node = (context||document.body).appendChild(document.createElement('div'));
+        context = context || document.body;
+        var node = this.node = context.appendChild(document.createElement('div'));
 
         node.id = TOOLTIP_ID = 'datassist_tooltip_' + (new Date().valueOf());
         node.className = 'datassist-tooltip';
@@ -26,14 +27,26 @@ define([], function () {
         var node = this.node,
             st = node.style;
 
+        if(this._hideTimer){
+            clearTimeout(this._hideTimer);
+        }
+
         node.innerHTML = text;
 
         st.top = top;
         st.left = left;
     }
 
+    Tooltip.prototype.offsetWidth = function(){
+        return this.node.offsetWidth;
+    }
+
     Tooltip.prototype.hide = function(){
-        this.node.style.top = '-10000px';
+        var _this = this;
+        this._hideTimer = setTimeout(function(){
+            _this.node.style.top = '-10000px';
+            _this._hideTimer = null;
+        }, 200);
     }
 
 

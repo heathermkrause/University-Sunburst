@@ -1,5 +1,5 @@
-define(['views/Component'], function(component){
-    if(typeof window['datassist'] == 'undefined'){
+define(['views/Component', 'lang/Array'], function (component) {
+    if (typeof window['datassist'] == 'undefined') {
         window.datassist = {};
     }
 
@@ -10,7 +10,7 @@ define(['views/Component'], function(component){
      *
      * @param el
      */
-    datassist.init = function(el){
+    datassist.init = function (el) {
         component(el);
     }
 

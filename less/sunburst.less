@@ -1,26 +1,49 @@
 @import '_base';
 
 .datassist-sunburst {
-  .arc {
-    opacity: 0.7;
 
-    stroke-width: 1px;
+  .chart-group {
+    .arc {
+      opacity: 0.7;
 
-    &.selected {
-      stroke-width: 2px;
-    }
+      stroke-width: 1px;
 
-    &:hover {
-      cursor: pointer;
+      &.selected {
+        stroke-width: 2px;
+        fill: rgba(240, 226, 181, 0.4);
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
   line {
-    stroke: #aaa;
+    stroke: rgba(0, 0, 0, 0.3);
     stroke-dasharray: 3
   }
 
   text {
     .datassist-font-face;
+
+    font-size: 10px;
+  }
+
+  text.scale {
+    fill: rgba(0, 0, 0, 0.5);
+  }
+
+  .label-group {
+
+    rect {
+      fill: rgba(240, 221, 160, 0.7);
+      stroke: rgba(0, 0, 0, 0.2);
+    }
+
+    text, rect {
+      cursor: default;
+    }
+
   }
 }

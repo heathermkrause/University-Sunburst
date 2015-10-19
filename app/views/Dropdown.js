@@ -1,4 +1,4 @@
-define(['text!./templates/Dropdown.html', '../util/query'], function (template, query) {
+define(['../util/query', '../util/HtmlUtil'], function (query, HtmlUtil) {
     /**
      * Iterates over array like structure
      */
@@ -12,42 +12,6 @@ define(['text!./templates/Dropdown.html', '../util/query'], function (template, 
                 callback.call(it, d, i);
             }
         }
-    }
-
-    /**
-     * Adds css class to html element if it does not yet exists
-     *
-     * @param el
-     * @param cssClass
-     */
-    function addClass(el, cssClass) {
-        if (el.className.indexOf(cssClass) == -1) {
-            el.className = el.className + ' ' + cssClass;
-        }
-    }
-
-    /**
-     * Removes css class from html element
-     *
-     * @param el
-     * @param cssClass
-     */
-    function removeClass(el, cssClass) {
-        var cls = " " + el.className + " ",
-
-            cls = cls.replace(' ' + cssClass + ' ', ' ').trim();
-
-        el.className = cls;
-    }
-
-    /**
-     * Removes if element has provided css class
-     *
-     * @param el
-     * @param cssClass
-     */
-    function containsClass(el, cssClass) {
-        return el.className.indexOf(cssClass) != -1;
     }
 
     /**
@@ -90,7 +54,7 @@ define(['text!./templates/Dropdown.html', '../util/query'], function (template, 
      * @private
      */
     function open(el) {
-        addClass(el, 'opened');
+        HtmlUtil.addClass(el, 'opened');
         activedd = el;
     }
 
@@ -99,7 +63,7 @@ define(['text!./templates/Dropdown.html', '../util/query'], function (template, 
      * @private
      */
     function close() {
-        removeClass(activedd, 'opened');
+        HtmlUtil.removeClass(activedd, 'opened');
         activedd = null;
     }
 
@@ -134,9 +98,9 @@ define(['text!./templates/Dropdown.html', '../util/query'], function (template, 
         el.value = value;
         query.one('.text', el).innerHTML = text;
 
-        forEach(query('.item', el), function (el) { removeClass(el, 'selected')})
+        forEach(query('.item', el), function (el) { HtmlUtil.removeClass(el, 'selected')})
 
-        addClass(query.one('.item[data-id="' + value + '"]', el), 'selected');
+        HtmlUtil.addClass(query.one('.item[data-id="' + value + '"]', el), 'selected');
 
         emit(el, 'change', {value: value});
     }
@@ -188,8 +152,9 @@ define(['text!./templates/Dropdown.html', '../util/query'], function (template, 
      * Creates drop down functionality
      */
     return function (el) {
+        // bind click event
         el.addEventListener('click', function (evt) {
-            if (containsClass(evt.target, 'item')) {
+            if (HtmlUtil.containsClass(evt.target, 'item')) {
                 clickItem(evt.target, el)
             } else {
                 open(el);

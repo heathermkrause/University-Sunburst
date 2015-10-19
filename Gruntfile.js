@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                 files : [
                     {
                         src : 'index-dist.html',
-                        dest : './dist/index.html',
+                        dest : './dist/index.html'
                     },
                     {src : 'libs/requirejs/require.js', dest : 'dist/require.js'},
                     {src : 'app/lang/Array.js', dest : 'dist/Array.js'}

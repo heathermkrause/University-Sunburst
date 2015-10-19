@@ -50,4 +50,22 @@ define(['exports', 'text!data/university.json'], function (exports, uds) {
     exports.getCategories = function(uid){
         return byId(ds.universities, uid).categories;
     }
+
+    /**
+     * Returns details about category specified by id
+     * @param catid
+     * @return {*}
+     */
+    exports.getCategoryDetails = function(catid){
+        return ds.categories[catid];
+    }
+
+    /**
+     * Returns indicator details by its ID
+     * @param indid
+     * @return {*}
+     */
+    exports.getIndicatorDetails = function(indid){
+       return ds.indicators[indid];
+    }
 });

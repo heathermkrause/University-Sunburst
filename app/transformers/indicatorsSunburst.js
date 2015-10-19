@@ -1,4 +1,5 @@
-define([], function () {
+define(['util/i18nValue'], function (i18nValue) {
+
     /**
      * Extracts indicators for particular university and category and preapres it
      * for using with Sunburst chart
@@ -13,7 +14,7 @@ define([], function () {
      * @TODO: a lot of arguments - transform to opts (eg all angles to opts, as it is related to view, not data).
      *
      */
-    return function (dataset, university, category, arcDelta, startAngle, endAngle) {
+    return function (dataset, university, category, arcDelta, startAngle, endAngle, lang) {
         var category = dataset.getCategory(university, category),
             indicators = category.indicators,
             count = indicators.length;
@@ -23,13 +24,14 @@ define([], function () {
 
         var arcAngle = ((endAngle - startAngle) - count * arcDelta) / count;
 
-
         return indicators.map(function (d, index) {
-            var _startAngle = startAngle + index * (arcDelta + arcAngle);
+            var _startAngle = startAngle + index * (arcDelta + arcAngle),
+                details = dataset.getIndicatorDetails(d.id);
 
             return {
-                name : d.name,
-                longname : d.longname,
+                id : d.id,
+                name : i18nValue(details, 'name', lang),
+                longname : i18nValue(details, 'longname', lang),
                 catid : category.id,
                 size : d.value,
                 startAngle: _startAngle,
