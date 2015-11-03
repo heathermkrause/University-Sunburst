@@ -21,4 +21,14 @@ To create distribution package, do
 npm run dist
 ```
 
-Distribution files will be available in /dist/ folder 
+Distribution file will be located in /dist/ folder:
+chart.js
+
+To use it in production, simply add following HTML to the page:
+
+```
+<script src="dist/chart.js"></script>
+<script>datassist.initSunburst(document.getElementById('ID_OF_YOUR_DESIRED_ELEMENT'));</script>
+```
+
+

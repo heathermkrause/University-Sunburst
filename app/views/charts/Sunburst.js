@@ -134,8 +134,11 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             var deltaY = 0;
 
             var PI = Math.PI, PI2 = Math.PI / 2;
-
             do {
+                if (!limit) {
+                    break;
+                }
+
                 var x = r * Math.sin(angle),
                     y = -r * Math.cos(angle) + deltaY;
 
@@ -167,21 +170,23 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 rec0.dx = 3;
                 rec0.dy = h;
                 rec0.lineX = r < startRadius ? startRadius * Math.sin(angle) : x;
-                rec0.lineY = r < startRadius ? -startRadius * Math.cos(angle) : y;;
+                rec0.lineY = r < startRadius ? -startRadius * Math.cos(angle) : y;
+                ;
 
                 var isOut = false;
-                if(rec0.x1 > maxX || rec0.x0 < -maxX || rec0.y0 < -maxY || rec0.y1 > maxY){
+                if (rec0.x1 > maxX || rec0.x0 < -maxX || rec0.y0 < -maxY || rec0.y1 > maxY) {
                     isOut = true;
                 }
 
-                if(isOut && delta > 0){
+                if (isOut && delta > 0) {
                     delta = -delta;
                     r = startRadius + delta;
                 }
 
-                if(isOut){
+                if (isOut) {
                     r += delta;
                     intersect = true;
+                    limit--;
                     continue;
                 }
 
@@ -206,11 +211,9 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                     ;
                 }
 
-                if (!--limit) {
-                    break;
-                }
-            } while (intersect);
+                limit--;
 
+            } while (intersect);
             occupied[angle] = rec0;
 
             return rec0;
@@ -399,7 +402,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .on('click', opts.clickRay)
             .on('mousemove', wrapWith(showTooltip, this.oX, this.oY, this.tooltip, opts))
             .on('mouseleave', function () {
-                setTimeout(function(){ _this.tooltip.hide()}, 0);
+                setTimeout(function () { _this.tooltip.hide()}, 0);
                 opts.mouseOutRay.apply(this, arguments)
             });
 
@@ -440,12 +443,12 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .attr('y', labelLayout.y)
             .attr('width', labelLayout.w)
             .attr('height', labelLayout.h)
-            .on('mouseenter', function(d){
-                var ray = _this.chartGroup.select('path[data-id="' + d.id +'"]');
+            .on('mouseenter', function (d) {
+                var ray = _this.chartGroup.select('path[data-id="' + d.id + '"]');
                 selectArc(ray.node());
-            }).on('mouseleave', function(){
-                _this.chartGroup.selectAll('.arc').classed('selected', false);
-            })
+            }).on('mouseleave', function () {
+            _this.chartGroup.selectAll('.arc').classed('selected', false);
+        })
         ;
 
         // TODO: add labels inside rectangles. may be it makes sense with possible wrapping
@@ -454,12 +457,12 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .attr('x', labelLayout.lx)
             .attr('y', labelLayout.ly)
             .text(text)
-            .on('mouseenter', function(d){
-                var ray = _this.chartGroup.select('path[data-id="' + d.id +'"]');
+            .on('mouseenter', function (d) {
+                var ray = _this.chartGroup.select('path[data-id="' + d.id + '"]');
                 selectArc(ray.node());
-            }).on('mouseleave', function(){
-                _this.chartGroup.selectAll('.arc').classed('selected', false);
-            });
+            }).on('mouseleave', function () {
+            _this.chartGroup.selectAll('.arc').classed('selected', false);
+        });
 
 
         g.append('line')
