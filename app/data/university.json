@@ -69,7 +69,7 @@
       "fr" : { "name" : "Étudiants étrangers", "longname" : "Pourcentage d'étudiants étant des étudiants étrangers" }
     },
     "12" : {
-      "en" : { "name" : "Entering marks", "longname" : "Percentage of Entering Students with High School Marks Below 75%" },
+      "en" : { "name" : "Entering Marks", "longname" : "Percentage of Entering Students with High School Marks Below 75%" },
       "fr" : { "name" : "Notes des nouveaux étudiants", "longname" : "Pourcentage de nouveaux étudiants dont les notes à l'école secondaire étaient inférieures à 75 %" }
     },
 

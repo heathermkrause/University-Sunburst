@@ -124,16 +124,22 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             var intersect = false,
                 rec0 = null;
 
-            var limit = 100;
+            var limit = 300;
 
             var delta = 3,
-                pad = 6;
+                pad = 2;
 
             var minRadius = 20;
 
             var deltaY = 0;
 
             var PI = Math.PI, PI2 = Math.PI / 2;
+
+            // returns if given rec is out of mix / max ranges
+            var checkIsOut = function(rec){
+                return rec.x1 > maxX || rec.x0 < -maxX || rec.y0 < -maxY || rec.y1 > maxY;
+            }
+
             do {
                 if (!limit) {
                     break;
@@ -145,7 +151,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 if (angle > 0 && angle <= PI2)
                 // 1st quater
                 {
-                    rec0 = {x0: x, y0: y - h - pad}
+                    rec0 = {x0: x, y0: y - h}
 
                 } else if (angle > PI2 && angle <= PI)
                 // 2nd quater
@@ -160,7 +166,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 } else
                 // 4th quoter
                 {
-                    rec0 = {x0: x - w - pad, y0: y - h - pad}
+                    rec0 = {x0: x - w - pad, y0: y - h}
                 }
 
                 rec0.w = w + pad;
@@ -171,11 +177,27 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 rec0.dy = h;
                 rec0.lineX = r < startRadius ? startRadius * Math.sin(angle) : x;
                 rec0.lineY = r < startRadius ? -startRadius * Math.cos(angle) : y;
-                ;
 
                 var isOut = false;
-                if (rec0.x1 > maxX || rec0.x0 < -maxX || rec0.y0 < -maxY || rec0.y1 > maxY) {
-                    isOut = true;
+                if (checkIsOut(rec0)) {
+                    // if label is out by x coordinate, tries to set x0 to the center of the label
+                    var ox0 = rec0.x0,
+                        ox1 = rec0.x1,
+                        w2 = rec0.w / 2;
+
+                    if(angle < PI){
+                        rec0.x0 -= w2;
+                        rec0.x1 -= w2;
+                    }else{
+                        rec0.x0 += w2;
+                        rec0.x1 += w2;
+                    }
+
+                    if(checkIsOut(rec0)){
+                        isOut = true;
+                        rec0.x0 = ox0;
+                        rec0.x1 = ox1;
+                    }
                 }
 
                 if (isOut && delta > 0) {
@@ -198,17 +220,15 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                         r += delta;
 
                         // if we already checked increasing radius and decreasing to very min,
-                        // lets start from beggining and try to add deltaY offset - Positive in first half
+                        // lets start from beginning and try to add deltaY offset - Positive in first half
                         // and negative in second half
                         if (r < minRadius) {
                             r = startRadius;
                             deltaY += angle > PI ? -5 : 5;
                         }
-                        ;
 
                         break;
                     }
-                    ;
                 }
 
                 limit--;
