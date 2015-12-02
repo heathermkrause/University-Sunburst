@@ -22,7 +22,7 @@ define(['./Observable'], function(Observable){
         });
 
         this.set('category', category);
-    }
+    };
 
     return App;
 });

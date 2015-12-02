@@ -1,0 +1,2770 @@
+{
+  "categories" : {
+    "1" : {
+      "en" : { "name" : "EQUITY OF ACCESS", "longname" : "Enrolment of underrepresented groups, Ontarians from lower socio-economic backgrounds, and transfer students" },
+      "fr" : { "name" : "ÉQUITÉ DE L’ACCÈS", "longname" : "Inscription des groupes sous-représentés, Ontariens issus de milieux socioéconomiques modestes et étudiants provenant d'un autre établissement " }
+    },
+    "2" : {
+      "en" : { "name" : "SUPPLY AND DEMAND", "longname" : "Student preference and university selection" },
+      "fr" : { "name" : "OFFRE ET DEMANDE", "longname" : "Préférence des étudiants et choix de l'université" }
+    },
+    "3" : {
+      "en" : { "name" : "LEARNING JOURNEY", "longname" : "The learning environment, student experience, and completion rates" },
+      "fr" : { "name" : "PARCOURS D’APPRENTISSAGE", "longname" : "L’environnement d’apprentissage, l'expérience étudiante et les taux d'achèvement des études" }
+    },
+    "4" : {
+      "en" : { "name" : "GRADUATE OUTCOMES", "longname" : "Resultant success in the job market and with the repayment of student loans" },
+      "fr" : { "name" : "DÉBOUCHÉS OFFERTS AUX DIPLÔMÉS", "longname" : "Réussite sur le marché du travail et remboursement des prêts étudiants" }
+    },
+    "5" : {
+      "en" : { "name" : "RESEARCH \nINTENSITY", "longname" : "Research Intensity and outcomes and PhD level graduates" },
+      "fr" : { "name" : "INTENSITÉ DE LA RECHERCHE", "longname" : "Intensité et résultats de la recherche et diplômés titulaires d'un doctorat" }
+    }
+  },
+
+  "indicators" : {
+    "1" : {
+      "en" : { "name" : "1st Generation", "longname" : "Percentage of Students who are First Generation Students" },
+      "fr" : { "name" : "Première génération", "longname" : "Pourcentage d'étudiants étant des étudiants de première génération" }
+    },
+    "2" : {
+      "en" : { "name" : "Aboriginal", "longname" : "Percentage of Students who are Aboriginal" },
+      "fr" : { "name" : "Autochtones", "longname" : "Pourcentage d'étudiants autochtones" }
+    },
+    "3" : {
+      "en" : { "name" : "Francophone", "longname" : "Percentage of Students for whom French is Mother Tongue" },
+      "fr" : { "name" : "Francophones", "longname" : "Pourcentage d'étudiants dont la langue maternelle est le français" }
+    },
+    "4" : {
+      "en" : { "name" : "OSAP", "longname" : "OSAP Participation Rate" },
+      "fr" : { "name" : "RAFEO", "longname" : "Taux de participation au RAFEO" }
+    },
+    "5" : {
+      "en" : { "name" : "Part-time", "longname" : "Percentage of Students Studying Part Time" },
+      "fr" : { "name" : "Temps partiel", "longname" : "Pourcentage d'étudiants à temps partiel" }
+    },
+    "6" : {
+      "en" : { "name" : "Transfer Students", "longname" : "Transfer Student Applicant to Registrant Ratio" },
+      "fr" : { "name" : "Étudiants venant d’un autre établissement", "longname" : "Rapport entre les candidats et les étudiants inscrits venant d'un autre établissement " }
+    },
+    "7" : {
+      "en" : { "name" : "Credit Transfer", "longname" : "Percentage of Registrants with Transferred Credits" },
+      "fr" : { "name" : "Transfert des crédits", "longname" : "Pourcentage d'étudiants inscrits dont les crédits ont été transférés " }
+    },
+
+    "8" : {
+      "en" : { "name" : "Applicant Demand", "longname" : "Applicant to Registrant Ratio" },
+      "fr" : { "name" : "Demande de candidats", "longname" : "Rapport entre les candidats et les étudiants inscrits" }
+    },
+    "9" : {
+      "en" : { "name" : "First Choice", "longname" : "Percentage of Applicants who Ranked the University as their Frist Choice" },
+      "fr" : { "name" : "Premier choix", "longname" : "Pourcentage de candidats ayant classé l'université comme étant leur premier choix" }
+    },
+    "10" : {
+      "en" : { "name" : "Rest of Canada", "longname" : "Percentage of Entering Students who are from other Canadian Provinces and Territories" },
+      "fr" : { "name" : "Reste du Canada", "longname" : "Pourcentage de nouveaux étudiants provenant d'autres provinces ou territoires canadiens" }
+    },
+    "11" : {
+      "en" : { "name" : "International", "longname" : "Percentage of Students who are International Students" },
+      "fr" : { "name" : "Étudiants étrangers", "longname" : "Pourcentage d'étudiants étant des étudiants étrangers" }
+    },
+    "12" : {
+      "en" : { "name" : "Entering Marks", "longname" : "Percentage of Entering Students with High School Marks Below 75%" },
+      "fr" : { "name" : "Notes des nouveaux étudiants", "longname" : "Pourcentage de nouveaux étudiants dont les notes à l'école secondaire étaient inférieures à 75 %" }
+    },
+
+    "13" : {
+      "en" : { "name" : "Retention", "longname" : "Retention Rate 1st to 2nd Year" },
+      "fr" : { "name" : "Persévérance", "longname" : "Taux de persévérance de la première à la deuxième année" }
+    },
+    "14" : {
+      "en" : { "name" : "Graduation", "longname" : "Graduation Rate" },
+      "fr" : { "name" : "Obtention de diplômes", "longname" : "Taux d'obtention de diplômes" }
+    },
+    "15" : {
+      "en" : { "name" : "Small Classes", "longname" : "Percentage of Undergraduate Classes with Fewer than 30 Students" },
+      "fr" : { "name" : "Classes de taille réduite", "longname" : "Pourcentage de classes du premier cycle comptant moins de 30 étudiants" }
+    },
+    "16" : {
+      "en" : { "name" : "Student Experience", "longname" : "Percentage of Fourth Year Students who had an \"Excellent\" or \"Good\" Educational Experience" },
+      "fr" : { "name" : "Expérience étudiante", "longname" : "Pourcentage d'étudiants de quatrième année ayant eu une expérience d'éducation « excellente » ou « bonne »" }
+    },
+    "17" : {
+      "en" : { "name" : "Student Loyalty", "longname" : "Percentage of Fourth Year Students who would \"Probably\" or \"Definitely\" Attend the Same Institution" },
+      "fr" : { "name" : "Loyauté étudiante", "longname" : "Pourcentage d'étudiants de quatrième année qui fréquenteraient «probablement» ou «sans aucun doute» le même établissement" }
+    },
+
+    "18" : {
+      "en" : { "name" : "Employment", "longname" : "Employment Rates of University Graduates Two Years after Graduation" },
+      "fr" : { "name" : "Emploi", "longname" : "Taux d’emploi des diplômés universitaires deux ans après l'obtention du diplôme" }
+    },
+    "19" : {
+      "en" : { "name" : "Earnings", "longname" : "Average Earnings of University Grduates Two Years after Graduation" },
+      "fr" : { "name" : "Gains", "longname" : "Gains moyens des diplômés universitaires deux ans après l'obtention du diplôme" }
+    },
+    "20" : {
+      "en" : { "name" : "Loan Default", "longname" : "Canada-Ontario Integrated Student Loan Default Rate" },
+      "fr" : { "name" : "Taux de carence", "longname" : "Taux de carence de paiement des prêts d’études intégrés Canada-Ontario" }
+    },
+
+    "21" : {
+      "en" : { "name" : "PhDs", "longname" : "Percentage of graduates who are PhDs" },
+      "fr" : { "name" : "Doctorat", "longname" : "Pourcentage de diplômés étant titulaires d'un doctorat" }
+    },
+    "22" : {
+      "en" : { "name" : "Research Income", "longname" : "Sponsored Research Income" },
+      "fr" : { "name" : "Revenu de la recherche", "longname" : "Revenu de la recherche subventionnée" }
+    },
+    "23" : {
+      "en" : { "name" : "Citations", "longname" : "Total Citations" },
+      "fr" : { "name" : "Citations", "longname" : "Nombre total de citations" }
+    },
+    "24" : {
+      "en" : { "name" : "H-Score", "longname" : "Research Impact: Mean Standardized H-Scores" },
+      "fr" : { "name" : "Indice de Hirsch", "longname" : "Incidence de la recherche : Pointages moyens normalisés selon l’indice de Hirsch" }
+    }
+  },
+
+  "universities" : [
+    {
+      "id" : 1,
+      "name" : "Algoma",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "1.0"
+            },
+            {
+              "id" : 2,
+              "value" : "2.4"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "0.7"
+            },
+            {
+              "id" : 5,
+              "value" : "0.8"
+            },
+            {
+              "id" : 6,
+              "value" : "1.2"
+            },
+            {
+              "id" : 7,
+              "value" : "1.5"
+            }
+          ],
+          "score" : "1.0"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 11,
+              "value" : "2.6"
+            },
+            {
+              "id" : 12,
+              "value" : "-2.5"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 23,
+              "value" : ""
+            },
+            {
+              "id" : 24,
+              "value" : "-2.0"
+            }
+          ],
+          "score" : "-1.2"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-3.0"
+            },
+            {
+              "id" : 14,
+              "value" : "-2.9"
+            },
+            {
+              "id" : 15,
+              "value" : "1.5"
+            },
+            {
+              "id" : 16,
+              "value" : "0.4"
+            },
+            {
+              "id" : 17,
+              "value" : "-0.1"
+            }
+          ],
+          "score" : "-0.9"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-2.5"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 20,
+              "value" : "-3.0"
+            }
+          ],
+          "score" : "-2.2"
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "name" : "Brock",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "0.6"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "0.1"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 6,
+              "value" : "0.3"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.1"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.0"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "-0.6"
+            }
+          ],
+          "score" : "-0.6"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.1"
+            },
+            {
+              "id" : 14,
+              "value" : "0.0"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 16,
+              "value" : "0.7"
+            },
+            {
+              "id" : 17,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.5"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 20,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "0.0"
+        }
+      ]
+    },
+    {
+      "id" : 3,
+      "name" : "Carleton",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 2,
+              "value" : "0.0"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.6"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.0"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 10,
+              "value" : "0.6"
+            },
+            {
+              "id" : 11,
+              "value" : "0.7"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.1"
+            }
+          ],
+          "score" : "0.2"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "0.4"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 24,
+              "value" : "0.2"
+            }
+          ],
+          "score" : "0.0"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.2"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 16,
+              "value" : "0.4"
+            },
+            {
+              "id" : 17,
+              "value" : "0.4"
+            }
+          ],
+          "score" : "0.0"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.6"
+            }
+          ],
+          "score" : "-0.3"
+        }
+      ]
+    },
+    {
+      "id" : 4,
+      "name" : "Guelph",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.4"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 9,
+              "value" : "0.3"
+            },
+            {
+              "id" : 10,
+              "value" : "0.9"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 12,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "0.6"
+            },
+            {
+              "id" : 22,
+              "value" : "0.1"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 24,
+              "value" : "0.6"
+            }
+          ],
+          "score" : "0.3"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.9"
+            },
+            {
+              "id" : 14,
+              "value" : "0.5"
+            },
+            {
+              "id" : 15,
+              "value" : "0.8"
+            },
+            {
+              "id" : 16,
+              "value" : "1.6"
+            },
+            {
+              "id" : 17,
+              "value" : "1.9"
+            }
+          ],
+          "score" : "1.1"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.7"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 20,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.2"
+        }
+      ]
+    },
+    {
+      "id" : 5,
+      "name" : "Lakehead",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 2,
+              "value" : "1.8"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 5,
+              "value" : "0.4"
+            },
+            {
+              "id" : 6,
+              "value" : "1.1"
+            },
+            {
+              "id" : 7,
+              "value" : "0.9"
+            }
+          ],
+          "score" : "0.4"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 9,
+              "value" : "0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 11,
+              "value" : "-1.2"
+            },
+            {
+              "id" : 12,
+              "value" : "-1.1"
+            }
+          ],
+          "score" : "-0.7"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "-0.9"
+            }
+          ],
+          "score" : "-0.7"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 14,
+              "value" : "0.6"
+            },
+            {
+              "id" : 15,
+              "value" : "0.3"
+            },
+            {
+              "id" : 16,
+              "value" : "-1.5"
+            },
+            {
+              "id" : 17,
+              "value" : "-1.3"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.4"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 20,
+              "value" : "0.2"
+            }
+          ],
+          "score" : "0.2"
+        }
+      ]
+    },
+    {
+      "id" : 6,
+      "name" : "Laurentian",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "2.7"
+            },
+            {
+              "id" : 2,
+              "value" : "2.3"
+            },
+            {
+              "id" : 3,
+              "value" : "2.2"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 5,
+              "value" : "1.0"
+            },
+            {
+              "id" : 6,
+              "value" : "1.4"
+            },
+            {
+              "id" : 7,
+              "value" : "2.6"
+            }
+          ],
+          "score" : "1.6"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.2"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.7"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-0.7"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 15,
+              "value" : "1.1"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "-0.2"
+            }
+          ],
+          "score" : "-0.2"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "1.4"
+            },
+            {
+              "id" : 19,
+              "value" : "1.0"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.1"
+            }
+          ],
+          "score" : "0.8"
+        }
+      ]
+    },
+    {
+      "id" : 7,
+      "name" : "McMaster",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "0.0"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.8"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "1.5"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 12,
+              "value" : "1.2"
+            }
+          ],
+          "score" : "0.3"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "1.1"
+            },
+            {
+              "id" : 22,
+              "value" : "0.7"
+            },
+            {
+              "id" : 23,
+              "value" : "0.6"
+            },
+            {
+              "id" : 24,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.8"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.6"
+            },
+            {
+              "id" : 14,
+              "value" : "0.7"
+            },
+            {
+              "id" : 15,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 16,
+              "value" : "0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "1.0"
+            }
+          ],
+          "score" : "0.4"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 19,
+              "value" : "0.9"
+            },
+            {
+              "id" : 20,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.5"
+        }
+      ]
+    },
+    {
+      "id" : 8,
+      "name" : "Nipissing",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 2,
+              "value" : "0.8"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 4,
+              "value" : "0.7"
+            },
+            {
+              "id" : 5,
+              "value" : "2.2"
+            },
+            {
+              "id" : 6,
+              "value" : "0.2"
+            },
+            {
+              "id" : 7,
+              "value" : "0.0"
+            }
+          ],
+          "score" : "0.4"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 9,
+              "value" : "0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 11,
+              "value" : "-1.4"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.6"
+            }
+          ],
+          "score" : "-0.6"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 23,
+              "value" : ""
+            },
+            {
+              "id" : 24,
+              "value" : "-1.5"
+            }
+          ],
+          "score" : "-1.0"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-1.0"
+            },
+            {
+              "id" : 14,
+              "value" : "1.4"
+            },
+            {
+              "id" : 15,
+              "value" : "1.2"
+            },
+            {
+              "id" : 16,
+              "value" : "0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "0.5"
+            }
+          ],
+          "score" : "0.6"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.3"
+            },
+            {
+              "id" : 19,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 20,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "-0.1"
+        }
+      ]
+    },
+    {
+      "id" : 9,
+      "name" : "OCADU",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "0.8"
+            },
+            {
+              "id" : 5,
+              "value" : "1.1"
+            },
+            {
+              "id" : 6,
+              "value" : "1.3"
+            },
+            {
+              "id" : 7,
+              "value" : "1.3"
+            }
+          ],
+          "score" : "0.5"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-2.0"
+            },
+            {
+              "id" : 9,
+              "value" : "3.0"
+            },
+            {
+              "id" : 10,
+              "value" : "0.4"
+            },
+            {
+              "id" : 11,
+              "value" : "0.1"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.3"
+            }
+          ],
+          "score" : "0.4"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : ""
+            },
+            {
+              "id" : 24,
+              "value" : "-1.6"
+            }
+          ],
+          "score" : "-1.1"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.4"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 15,
+              "value" : "2.4"
+            },
+            {
+              "id" : 16,
+              "value" : "-1.4"
+            },
+            {
+              "id" : 17,
+              "value" : "-0.7"
+            }
+          ],
+          "score" : "0.0"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-2.2"
+            },
+            {
+              "id" : 19,
+              "value" : "-2.3"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.7"
+            }
+          ],
+          "score" : "-1.8"
+        }
+      ]
+    },
+    {
+      "id" : 10,
+      "name" : "Ottawa",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 3,
+              "value" : "3.4"
+            },
+            {
+              "id" : 4,
+              "value" : "-1.2"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 6,
+              "value" : "0.0"
+            },
+            {
+              "id" : 7,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "0.2"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.2"
+            },
+            {
+              "id" : 9,
+              "value" : "0.0"
+            },
+            {
+              "id" : 10,
+              "value" : "2.4"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 12,
+              "value" : "0.6"
+            }
+          ],
+          "score" : "0.6"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "0.5"
+            },
+            {
+              "id" : 22,
+              "value" : "0.6"
+            },
+            {
+              "id" : 23,
+              "value" : "0.6"
+            },
+            {
+              "id" : 24,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.6"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.0"
+            },
+            {
+              "id" : 14,
+              "value" : "0.3"
+            },
+            {
+              "id" : 15,
+              "value" : "0.1"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "-1.1"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.3"
+            },
+            {
+              "id" : 19,
+              "value" : "0.4"
+            },
+            {
+              "id" : 20,
+              "value" : "0.0"
+            }
+          ],
+          "score" : "0.2"
+        }
+      ]
+    },
+    {
+      "id" : 11,
+      "name" : "UOIT",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "2.4"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 3,
+              "value" : ""
+            },
+            {
+              "id" : 4,
+              "value" : "1.0"
+            },
+            {
+              "id" : 5,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 6,
+              "value" : "1.4"
+            },
+            {
+              "id" : 7,
+              "value" : "1.1"
+            }
+          ],
+          "score" : "0.7"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 12,
+              "value" : "-1.2"
+            }
+          ],
+          "score" : "-0.7"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "0.4"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-1.0"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 15,
+              "value" : "-1.5"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "-1.6"
+            }
+          ],
+          "score" : "-1.1"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.9"
+            },
+            {
+              "id" : 19,
+              "value" : "0.9"
+            },
+            {
+              "id" : 20,
+              "value" : "0.3"
+            }
+          ],
+          "score" : "0.7"
+        }
+      ]
+    },
+    {
+      "id" : 12,
+      "name" : "Queen's",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "-2.6"
+            },
+            {
+              "id" : 5,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 7,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-1.1"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 9,
+              "value" : "0.6"
+            },
+            {
+              "id" : 10,
+              "value" : "1.8"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 12,
+              "value" : "1.2"
+            }
+          ],
+          "score" : "0.5"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "1.3"
+            },
+            {
+              "id" : 22,
+              "value" : "0.1"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 24,
+              "value" : "0.9"
+            }
+          ],
+          "score" : "0.5"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "1.2"
+            },
+            {
+              "id" : 14,
+              "value" : "1.6"
+            },
+            {
+              "id" : 15,
+              "value" : "0.5"
+            },
+            {
+              "id" : 16,
+              "value" : "1.3"
+            },
+            {
+              "id" : 17,
+              "value" : "1.4"
+            }
+          ],
+          "score" : "1.2"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.1"
+            },
+            {
+              "id" : 19,
+              "value" : "1.0"
+            },
+            {
+              "id" : 20,
+              "value" : "1.0"
+            }
+          ],
+          "score" : "0.7"
+        }
+      ]
+    },
+    {
+      "id" : 13,
+      "name" : "Ryerson",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "0.3"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "1.8"
+            },
+            {
+              "id" : 5,
+              "value" : "2.0"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 7,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "0.4"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "2.3"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 12,
+              "value" : "0.8"
+            }
+          ],
+          "score" : "0.3"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "-0.7"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.2"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 17,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 19,
+              "value" : "0.7"
+            },
+            {
+              "id" : 20,
+              "value" : "0.5"
+            }
+          ],
+          "score" : "0.3"
+        }
+      ]
+    },
+    {
+      "id" : 14,
+      "name" : "Toronto",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 6,
+              "value" : "0.2"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.2"
+            },
+            {
+              "id" : 9,
+              "value" : "0.8"
+            },
+            {
+              "id" : 10,
+              "value" : "1.0"
+            },
+            {
+              "id" : 11,
+              "value" : "1.8"
+            },
+            {
+              "id" : 12,
+              "value" : "1.0"
+            }
+          ],
+          "score" : "1.0"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "2.0"
+            },
+            {
+              "id" : 22,
+              "value" : "3.0"
+            },
+            {
+              "id" : 23,
+              "value" : "3.0"
+            },
+            {
+              "id" : 24,
+              "value" : "1.6"
+            }
+          ],
+          "score" : "2.8"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.9"
+            },
+            {
+              "id" : 14,
+              "value" : "0.3"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 16,
+              "value" : "-1.0"
+            },
+            {
+              "id" : 17,
+              "value" : "-0.8"
+            }
+          ],
+          "score" : "-0.2"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 19,
+              "value" : "-1.3"
+            },
+            {
+              "id" : 20,
+              "value" : "0.8"
+            }
+          ],
+          "score" : "-0.2"
+        }
+      ]
+    },
+    {
+      "id" : 15,
+      "name" : "Trent",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "1.2"
+            },
+            {
+              "id" : 5,
+              "value" : "0.0"
+            },
+            {
+              "id" : 6,
+              "value" : "0.2"
+            },
+            {
+              "id" : 7,
+              "value" : "0.2"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.0"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 11,
+              "value" : "0.2"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.7"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 15,
+              "value" : "0.0"
+            },
+            {
+              "id" : 16,
+              "value" : "1.2"
+            },
+            {
+              "id" : 17,
+              "value" : "1.1"
+            }
+          ],
+          "score" : "0.2"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 19,
+              "value" : "0.5"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.1"
+        }
+      ]
+    },
+    {
+      "id" : 16,
+      "name" : "Waterloo",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "0.8"
+            },
+            {
+              "id" : 5,
+              "value" : "-1.4"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 7,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-0.6"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "0.1"
+            },
+            {
+              "id" : 9,
+              "value" : "0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "0.5"
+            },
+            {
+              "id" : 11,
+              "value" : "1.1"
+            },
+            {
+              "id" : 12,
+              "value" : "1.2"
+            }
+          ],
+          "score" : "0.6"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "1.7"
+            },
+            {
+              "id" : 22,
+              "value" : "0.2"
+            },
+            {
+              "id" : 23,
+              "value" : "0.0"
+            },
+            {
+              "id" : 24,
+              "value" : "1.0"
+            }
+          ],
+          "score" : "0.7"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.9"
+            },
+            {
+              "id" : 14,
+              "value" : "0.6"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 17,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "1.0"
+            },
+            {
+              "id" : 19,
+              "value" : "2.1"
+            },
+            {
+              "id" : 20,
+              "value" : "1.3"
+            }
+          ],
+          "score" : "1.4"
+        }
+      ]
+    },
+    {
+      "id" : 17,
+      "name" : "Western",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 5,
+              "value" : "-1.0"
+            },
+            {
+              "id" : 6,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.4"
+            }
+          ],
+          "score" : "-0.6"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "1.7"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 10,
+              "value" : "1.0"
+            },
+            {
+              "id" : 11,
+              "value" : "0.2"
+            },
+            {
+              "id" : 12,
+              "value" : "1.2"
+            }
+          ],
+          "score" : "0.7"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "1.0"
+            },
+            {
+              "id" : 22,
+              "value" : "0.4"
+            },
+            {
+              "id" : 23,
+              "value" : "0.2"
+            },
+            {
+              "id" : 24,
+              "value" : "0.7"
+            }
+          ],
+          "score" : "0.6"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "1.0"
+            },
+            {
+              "id" : 14,
+              "value" : "1.0"
+            },
+            {
+              "id" : 15,
+              "value" : "0.0"
+            },
+            {
+              "id" : 16,
+              "value" : "1.1"
+            },
+            {
+              "id" : 17,
+              "value" : "0.8"
+            }
+          ],
+          "score" : "0.8"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "1.1"
+            },
+            {
+              "id" : 19,
+              "value" : "0.7"
+            },
+            {
+              "id" : 20,
+              "value" : "0.6"
+            }
+          ],
+          "score" : "0.8"
+        }
+      ]
+    },
+    {
+      "id" : 18,
+      "name" : "Laurier",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 4,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 6,
+              "value" : "-2.3"
+            },
+            {
+              "id" : 7,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-0.7"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "1.0"
+            },
+            {
+              "id" : 9,
+              "value" : "-1.0"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 11,
+              "value" : "-0.7"
+            },
+            {
+              "id" : 12,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "-0.3"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "0.0"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.2"
+            },
+            {
+              "id" : 14,
+              "value" : "0.3"
+            },
+            {
+              "id" : 15,
+              "value" : "-1.2"
+            },
+            {
+              "id" : 16,
+              "value" : "0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "0.5"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "0.7"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.3"
+            }
+          ],
+          "score" : "0.0"
+        }
+      ]
+    },
+    {
+      "id" : 19,
+      "name" : "Windsor",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "0.4"
+            },
+            {
+              "id" : 5,
+              "value" : "0.0"
+            },
+            {
+              "id" : 6,
+              "value" : "0.2"
+            },
+            {
+              "id" : 7,
+              "value" : "-0.6"
+            }
+          ],
+          "score" : "-0.2"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 11,
+              "value" : "0.3"
+            },
+            {
+              "id" : 12,
+              "value" : "-0.5"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "0.0"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 24,
+              "value" : "-0.1"
+            }
+          ],
+          "score" : "-0.2"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 14,
+              "value" : "0.0"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 16,
+              "value" : "-1.1"
+            },
+            {
+              "id" : 17,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-0.6"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.4"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.9"
+            }
+          ],
+          "score" : "-0.7"
+        }
+      ]
+    },
+    {
+      "id" : 20,
+      "name" : "York",
+      "categories" : [
+        {
+          "id" : 1,
+          "indicators" : [
+            {
+              "id" : 1,
+              "value" : "0.3"
+            },
+            {
+              "id" : 2,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 3,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 4,
+              "value" : "0.5"
+            },
+            {
+              "id" : 5,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 6,
+              "value" : "-1.7"
+            },
+            {
+              "id" : 7,
+              "value" : "-1.0"
+            }
+          ],
+          "score" : "-0.4"
+        },
+        {
+          "id" : 2,
+          "indicators" : [
+            {
+              "id" : 8,
+              "value" : "-0.9"
+            },
+            {
+              "id" : 9,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 10,
+              "value" : "-0.6"
+            },
+            {
+              "id" : 11,
+              "value" : "0.4"
+            },
+            {
+              "id" : 12,
+              "value" : "0.1"
+            }
+          ],
+          "score" : "-0.2"
+        },
+        {
+          "id" : 5,
+          "indicators" : [
+            {
+              "id" : 21,
+              "value" : "0.0"
+            },
+            {
+              "id" : 22,
+              "value" : "-0.2"
+            },
+            {
+              "id" : 23,
+              "value" : "-0.3"
+            },
+            {
+              "id" : 24,
+              "value" : "0.9"
+            }
+          ],
+          "score" : "0.1"
+        },
+        {
+          "id" : 3,
+          "indicators" : [
+            {
+              "id" : 13,
+              "value" : "0.0"
+            },
+            {
+              "id" : 14,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 15,
+              "value" : "-0.1"
+            },
+            {
+              "id" : 16,
+              "value" : "-0.8"
+            },
+            {
+              "id" : 17,
+              "value" : "-1.3"
+            }
+          ],
+          "score" : "-0.5"
+        },
+        {
+          "id" : 4,
+          "indicators" : [
+            {
+              "id" : 18,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 19,
+              "value" : "-0.5"
+            },
+            {
+              "id" : 20,
+              "value" : "-0.3"
+            }
+          ],
+          "score" : "-0.5"
+        }
+      ]
+    }
+  ]
+}

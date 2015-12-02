@@ -1,6 +1,8 @@
 define([
     'text!./templates/Component.html',
     'models/Dataset',
+    'text!data/university.json',
+    'text!data/university_scores.json',
     'models/App',
     'views/charts/Sunburst',
     'views/Dropdown',
@@ -9,7 +11,7 @@ define([
     'util/query',
     'util/HtmlUtil',
     'd3'
-], function (template, dataset, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
+], function (template, Dataset, dataRating, dataScores, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
 
     var MODE_INDICATORS = 'indicators',
         MODE_CATEGORIES = 'categories';
@@ -25,7 +27,7 @@ define([
         3: '#F0CA4D',
         4: '#E37B40',
         5: '#300A57'
-    }
+    };
 
     /**
      * Function that initializes and renders full compoenent into provided element
@@ -34,7 +36,12 @@ define([
     return function (el) {
         // Defines application object that will be responsible for holding current state and
         // emitting change events
-        var app = new App({university: 1, lang: 'fr'});
+        var app = new App({university: 1, lang: 'en'});
+
+        var ratingDataset = new Dataset(dataRating),
+            scoreDataset = new Dataset(dataScores);
+
+        app.set('data', ratingDataset);
 
         var CATEGORY_OVER_DELAY = 400;
         var categoryOverTimer = null;
@@ -96,8 +103,12 @@ define([
             strokeColor: function (d, index) {
                 return d3.rgb(FILL_COLORS[d.catid]).darker(index + 1);
             }
-        }
+        };
 
+        // Defines scale and scale domains for rating and score cases
+        var ratingScaleDomain = [0, 20],
+            scoreScaleDomain = [-3.25, 3.5],
+            scoreScale = [-3, -1.5, 0, 1.5, 3];
 
         el.innerHTML = template;
 
@@ -105,7 +116,7 @@ define([
 
         var universitydd = dropdown(universityNode);
 
-        HtmlUtil.populateDropdown(universityNode, dataset.getUniversities());
+        HtmlUtil.populateDropdown(universityNode, app.data.getUniversities());
 
         universitydd.setValue(app.university);
 
@@ -142,7 +153,7 @@ define([
         var indicatorsChart = new Sunburst(query.one('.datassist-indicators', el), indicatorsOpts);
 
         function drawThemes() {
-            var categoriesDataset = categoriesSunburst(dataset, app.university, CATEGORY_ARC_DELTA, app.lang);
+            var categoriesDataset = categoriesSunburst(app.data, app.university, CATEGORY_ARC_DELTA, app.lang);
 
             themesChart.drawData(categoriesDataset);
 
@@ -155,7 +166,45 @@ define([
         }
 
         function drawIndicators() {
-            indicatorsChart.drawData(indicatorsSunburst(dataset, app.university, app.category, INDICATOR_ARC_DELTA, app.indStartAngle, app.indEndAngle, app.lang));
+            indicatorsChart.drawData(indicatorsSunburst(app.data, app.university, app.category, INDICATOR_ARC_DELTA, app.indStartAngle, app.indEndAngle, app.lang));
+        }
+
+        function renderCharts(){
+            themesChart.render();
+            themesChart.drawScale();
+
+            indicatorsChart.render();
+            indicatorsChart.drawScale();
+        }
+
+        function setScoreData(){
+            themesChart.setOption('scale', scoreScale);
+            themesChart.setOption('scaleDomain', scoreScaleDomain);
+            themesChart.setOption('minOuterRadius', 0);
+
+            indicatorsChart.setOption('scale', scoreScale);
+            indicatorsChart.setOption('scaleDomain', scoreScaleDomain);
+            indicatorsChart.setOption('minOuterRadius', 0);
+
+            app.set('data', scoreDataset);
+
+            renderCharts();
+            drawThemes();
+        }
+
+        function setRatingData(){
+            themesChart.setOption('scale', 'auto');
+            themesChart.setOption('scaleDomain', ratingScaleDomain);
+            themesChart.setOption('minOuterRadius', 40);
+
+            indicatorsChart.setOption('scale', 'auto');
+            indicatorsChart.setOption('scaleDomain', ratingScaleDomain);
+            indicatorsChart.setOption('minOuterRadius', 40);
+
+            app.set('data', ratingDataset);
+
+            renderCharts();
+            drawThemes();
         }
 
         app.observe('category', function (p, value, oldValue) {
@@ -163,6 +212,7 @@ define([
                 drawIndicators();
             }
         });
+
         app.observe('university', function () {
             drawThemes();
         });
@@ -172,7 +222,24 @@ define([
             drawThemes();
         });
 
+        query.one('.units a').addEventListener('click', function(evt){
+            evt.preventDefault();
+            var target = evt.target;
 
-        drawThemes();
+            var newText = target.getAttribute('data-other');
+            var text = target.innerHTML;
+
+            target.innerHTML = newText;
+            target.setAttribute('data-other', text);
+
+            if(text == 'Scores'){
+                setScoreData();
+            }else{
+                setRatingData();
+            }
+        });
+
+
+        setScoreData();
     }
 });

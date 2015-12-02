@@ -248,7 +248,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * @param opts
      * @constructor
      */
-    function Sunburt(el, opts) {
+    function Sunburst(el, opts) {
         this.el = el;
 
         this.opts = {
@@ -258,7 +258,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             padding: [20, 50, 20, 50],
 
             // minimum size of the ray in chart
-            minOuterRadius: 40,
+            minOuterRadius: 0,
 
             // offset for legend text. decreases maximum radius to radius where labels are located
             labelOffset: 40,
@@ -270,6 +270,9 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
 
             // Count of the levels on background scale
             scaleLevels: 4,
+
+            scale : 'auto', // auto or array of values
+            scaleDomain : [0, 10], // domain values
 
             tooltipText: tooltipText,
 
@@ -284,7 +287,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             mouseOverRay: function () { /* empty implementation */ },
             mouseOutRay: function () { /* empty implementation */ },
             clickRay: function () { /* empty implementation */ }
-        }
+        };
 
         // overrides default properties with provided (if any)
         if (opts) {
@@ -319,7 +322,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
     /**
      * Calculates and stores values related to chart dimensions
      */
-    Sunburt.prototype.preCalculate = function () {
+    Sunburst.prototype.preCalculate = function () {
         // do some precalculations
         var opts = this.opts,
             width = opts.width,
@@ -336,13 +339,16 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
     /**
      * Renders base sunburst elements, without drawing dataset
      */
-    Sunburt.prototype.render = function () {
+    Sunburst.prototype.render = function () {
         this.el.innerHTML = '';
 
         var _this = this,
             opts = this.opts;
 
         var outer = this.el.appendChild(document.createElement('div'));
+
+        // prepares scale
+        this.scaleSize = d3.scale.linear().domain(opts.scaleDomain).range([opts.minOuterRadius, this.chartRadius]);
 
         // prepares svg
         var svg = d3.select(outer).append('svg')
@@ -360,17 +366,17 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
         this.labelGroup = this.mainGroup.append('g').attr('class', 'label-group');
 
         this.tooltip = new Tooltip(outer);
-    }
+    };
 
     /**
      * Renders scale of the sunburst. It is supposed that we uses maxValue in options, so that we dont need dataset
      * to define maximum value on scale
      */
-    Sunburt.prototype.drawScale = function () {
-        var opts = this.opts;
+    Sunburst.prototype.drawScale = function () {
+        var opts = this.opts,
+            _this = this;
 
-        var range = d3.range(opts.maxValue, 0, -opts.scaleLevels).reverse(),
-            scaleSize = d3.scale.linear().domain([0, opts.maxValue]).range([opts.minOuterRadius, this.chartRadius]);
+        var data = opts.scale == 'auto' ? d3.range(opts.scaleDomain[1], opts.scaleDomain[0], -opts.scaleLevels).reverse() : opts.scale;
 
         this.scaleGroup.selectAll('*').remove();
 
@@ -381,17 +387,17 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .attr('fill', '#f2f2f2')
         ;
 
-        vizScale.selectAll('circle.scale').data(range)
+        vizScale.selectAll('circle.scale').data(data)
             .enter().append('circle')
-            .attr('r', function (d) { return scaleSize(d); })
+            .attr('r', function (d) { return _this.scaleSize(d); })
             .attr('stroke', '#cecece')
             .attr('fill', 'none')
         ;
 
-        vizScale.selectAll('text.scale').data(range).enter().append('text')
+        vizScale.selectAll('text.scale').data(data).enter().append('text')
             .attr('class', 'scale')
-            .text(function (d) { return Math.round(d)})
-            .attr('y', function (d) { return scaleSize(d)});
+            .text(function (d) { return d})
+            .attr('y', function (d) { return _this.scaleSize(d)});
     }
 
     /**
@@ -399,20 +405,20 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * TODO deal more correct with legendLabelOffset - currently it is offset from outer radius that looks confusing
      * @param dataset
      */
-    Sunburt.prototype.drawData = function (dataset) {
+    Sunburst.prototype.drawData = function (dataset) {
+        //return;
         var _this = this,
             opts = this.opts;
 
         // creates bar sizes scale from sizes range to radius value in pixels
-        var maxSize = opts.maxValue || Math.max.apply(Math, dataset.map(function (d) { return d.size;})),
-            scaleSize = d3.scale.linear().domain([0, maxSize]).range([opts.minOuterRadius, this.chartRadius]);
+        var maxSize = opts.maxValue || Math.max.apply(Math, dataset.map(function (d) { return d.size;}));
 
         // create groups that will be used for rendering real data
         this.chartGroup.selectAll('*').remove();
 
         this.chartGroup.selectAll('path').data(dataset).enter()
             .append('path')
-            .attr('d', arc(scaleSize))
+            .attr('d', arc(this.scaleSize))
             .attr('class', opts.rayClass)
             .attr('data-id', function (d) { return d.id; }) // optional
             .attr('fill', opts.fillColor)
@@ -432,7 +438,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
         var labelLayout = (function () {
             // returns position from d
             var dPos = function (d) {
-                return labelPosition.find(text(d), d.startAngle + d.deltaAngle / 2, scaleSize(d.size) + 3);
+                return labelPosition.find(text(d), d.startAngle + d.deltaAngle / 2, _this.scaleSize(d.size) + 3);
             };
 
             return {
@@ -486,8 +492,8 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
 
 
         g.append('line')
-            .attr('x1', function (d) { return (scaleSize(d.size) + 2) * Math.sin(d.startAngle + d.deltaAngle / 2); })
-            .attr('y1', function (d) { return -(scaleSize(d.size) + 2) * Math.cos(d.startAngle + d.deltaAngle / 2); })
+            .attr('x1', function (d) { return (_this.scaleSize(d.size) + 2) * Math.sin(d.startAngle + d.deltaAngle / 2); })
+            .attr('y1', function (d) { return -(_this.scaleSize(d.size) + 2) * Math.cos(d.startAngle + d.deltaAngle / 2); })
             .attr('x2', labelLayout.lineX)
             .attr('y2', labelLayout.lineY);
 
@@ -515,15 +521,24 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 }
             }
         }
-    }
+    };
 
     /**
      * Selects arc by its ID
      * @param id
      */
-    Sunburt.prototype.select = function (id) {
+    Sunburst.prototype.select = function (id) {
         selectArc(d3.select(this.el).select('.arc[data-id="' + id + '"]').node());
-    }
+    };
 
-    return Sunburt;
+    /**
+     * Sets option on sunburst chart
+     * @param name
+     * @param value
+     */
+    Sunburst.prototype.setOption = function(name, value){
+        this.opts[name] = value;
+    };
+
+    return Sunburst;
 });
