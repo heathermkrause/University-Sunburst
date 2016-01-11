@@ -51,7 +51,7 @@ define([], function () {
      * @param university
 `     */
     Dataset.prototype.getCategories = function(uid){
-        return byId(this.ds.universities, uid).categories;
+        return byId(this.ds.universities, uid).categories.sort(function(a, b){ return a.id > b.id});
     };
 
     /**

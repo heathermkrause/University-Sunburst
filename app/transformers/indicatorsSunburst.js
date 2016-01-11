@@ -24,7 +24,7 @@ define(['util/i18nValue'], function (i18nValue) {
 
         var arcAngle = ((endAngle - startAngle) - count * arcDelta) / count;
 
-        return indicators.map(function (d, index) {
+        return indicators.filter(function(d){ return !dataset.getIndicatorDetails(d.id).skip}).map(function (d, index) {
             var _startAngle = startAngle + index * (arcDelta + arcAngle),
                 details = dataset.getIndicatorDetails(d.id);
 
@@ -36,7 +36,8 @@ define(['util/i18nValue'], function (i18nValue) {
                 size : d.value,
                 startAngle: _startAngle,
                 angle: _startAngle + arcAngle / 2,
-                deltaAngle: arcAngle
+                deltaAngle: arcAngle,
+                skip : details.skip
             }
         });
     }

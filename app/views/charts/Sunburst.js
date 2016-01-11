@@ -1,11 +1,11 @@
-define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip) {
+define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip){
 
     /**
      * Toggles selection to the arc specified by arcNode
      *
      * @param   arcNode     HTMLElement that should be selected.
      */
-    function selectArc(arcNode) {
+    function selectArc(arcNode){
         d3.select(arcNode.parentNode).selectAll('.arc').classed('selected', false);
         d3.select(arcNode).classed('selected', true);
     }
@@ -14,12 +14,12 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * Creates d3 arc generator
      * @param       scaleSize
      */
-    function arc(scaleSize) {
+    function arc(scaleSize){
         return d3.svg.arc()
             .innerRadius(0)
-            .outerRadius(function (d) { return scaleSize(d.size)})
-            .startAngle(function (d) { return d.startAngle; })
-            .endAngle(function (d) { return d.startAngle + d.deltaAngle; });
+            .outerRadius(function(d){ return scaleSize(d.size)})
+            .startAngle(function(d){ return d.startAngle; })
+            .endAngle(function(d){ return d.startAngle + d.deltaAngle; });
     }
 
     /**
@@ -28,21 +28,21 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * @param d
      * @return {string}
      */
-    function rayClass(d) {
+    function rayClass(d){
         return typeof d.id != 'undefined' ? 'id-' + d.id : '';
     }
 
     /**
      * Returns fill color that should be used for particular ray
      */
-    function fillColor(d) {
+    function fillColor(d){
         return '#0088cc';
     }
 
     /**
      * Returns stroke color for particular ray
      */
-    function strokeColor(d) {
+    function strokeColor(d){
         return '#444';
     }
 
@@ -54,7 +54,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * @param oy
      * @param tooltip
      */
-    function showTooltip(d, ox, oy, tooltip, opts) {
+    function showTooltip(d, ox, oy, tooltip, opts){
         var xy = d3.mouse(this),
             x = xy[0];
 
@@ -64,7 +64,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
     /**
      * Default function that returns tooltip text for each 'd'
      */
-    function tooltipText(d) {
+    function tooltipText(d){
         return d.name + ': ' + d.size;
     }
 
@@ -72,11 +72,11 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * Wraps provided callback to be called with extra arguments
      * @param callback
      */
-    function wrapWith(/*callback, ..opts?*/) {
+    function wrapWith(/*callback, ..opts?*/){
         var args = Array.prototype.slice.call(arguments, 0),
             callback = args.shift();
 
-        return function (d) {
+        return function(d){
             return callback.apply(this, [d].concat(args));
         }
     }
@@ -86,7 +86,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * @param {D3Selection} labelGroup - Group where labels will be located. This is used for dimension calculations of the particular label using testSpan
      * @constructor
      */
-    function LabelPosition(labelGroup, maxX, maxY) {
+    function LabelPosition(labelGroup, maxX, maxY){
         var SPAN_ID = '__datassist_testspan';
         var occupied = {};
 
@@ -99,8 +99,8 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
          *
          * @return {*}
          */
-        this.find = function (text, angle, startRadius) {
-            if (occupied[angle]) {
+        this.find = function(text, angle, startRadius){
+            if(occupied[angle]) {
                 return occupied[angle];
             }
 
@@ -116,7 +116,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             /**
              * Checks if rectangles are intersecting
              */
-            var isIntersect = function (rec0, rec1) {
+            var isIntersect = function(rec0, rec1){
                 var m = 3;
                 return !(rec0.x1 + m < rec1.x0 || rec0.x0 - m > rec1.x1 || rec0.y0 - m > rec1.y1 || rec0.y1 + m < rec1.y0);
             }
@@ -141,24 +141,24 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             }
 
             do {
-                if (!limit) {
+                if(!limit) {
                     break;
                 }
 
                 var x = r * Math.sin(angle),
                     y = -r * Math.cos(angle) + deltaY;
 
-                if (angle > 0 && angle <= PI2)
+                if(angle > 0 && angle <= PI2)
                 // 1st quater
                 {
                     rec0 = {x0: x, y0: y - h}
 
-                } else if (angle > PI2 && angle <= PI)
+                } else if(angle > PI2 && angle <= PI)
                 // 2nd quater
                 {
                     rec0 = {x0: x, y0: y, linex: x, liney: y}
 
-                } else if (angle > PI && angle <= 3 * PI2)
+                } else if(angle > PI && angle <= 3 * PI2)
                 // 3st quater
                 {
                     rec0 = {x0: x - w - pad, y0: y}
@@ -179,33 +179,33 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 rec0.lineY = r < startRadius ? -startRadius * Math.cos(angle) : y;
 
                 var isOut = false;
-                if (checkIsOut(rec0)) {
+                if(checkIsOut(rec0)) {
                     // if label is out by x coordinate, tries to set x0 to the center of the label
                     var ox0 = rec0.x0,
                         ox1 = rec0.x1,
                         w2 = rec0.w / 2;
 
-                    if(angle < PI){
+                    if(angle < PI) {
                         rec0.x0 -= w2;
                         rec0.x1 -= w2;
-                    }else{
+                    } else {
                         rec0.x0 += w2;
                         rec0.x1 += w2;
                     }
 
-                    if(checkIsOut(rec0)){
+                    if(checkIsOut(rec0)) {
                         isOut = true;
                         rec0.x0 = ox0;
                         rec0.x1 = ox1;
                     }
                 }
 
-                if (isOut && delta > 0) {
+                if(isOut && delta > 0) {
                     delta = -delta;
                     r = startRadius + delta;
                 }
 
-                if (isOut) {
+                if(isOut) {
                     r += delta;
                     intersect = true;
                     limit--;
@@ -213,16 +213,16 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
                 }
 
                 var intersect = false;
-                for (p in occupied) {
+                for(p in occupied) {
                     var rec1 = occupied[p];
-                    if (isIntersect(rec0, rec1)) {
+                    if(isIntersect(rec0, rec1)) {
                         intersect = true;
                         r += delta;
 
                         // if we already checked increasing radius and decreasing to very min,
                         // lets start from beginning and try to add deltaY offset - Positive in first half
                         // and negative in second half
-                        if (r < minRadius) {
+                        if(r < minRadius) {
                             r = startRadius;
                             deltaY += angle > PI ? -5 : 5;
                         }
@@ -233,7 +233,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
 
                 limit--;
 
-            } while (intersect);
+            } while(intersect);
             occupied[angle] = rec0;
 
             return rec0;
@@ -248,7 +248,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * @param opts
      * @constructor
      */
-    function Sunburst(el, opts) {
+    function Sunburst(el, opts){
         this.el = el;
 
         this.opts = {
@@ -271,8 +271,8 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             // Count of the levels on background scale
             scaleLevels: 4,
 
-            scale : 'auto', // auto or array of values
-            scaleDomain : [0, 10], // domain values
+            scale: 'auto', // auto or array of values
+            scaleDomain: [0, 10], // domain values
 
             tooltipText: tooltipText,
 
@@ -283,31 +283,31 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
 
             useGradient: false,
 
-            mouseOut: function () { /* empty implementation */},
-            mouseOverRay: function () { /* empty implementation */ },
-            mouseOutRay: function () { /* empty implementation */ },
-            clickRay: function () { /* empty implementation */ }
+            mouseOut: function(){ /* empty implementation */},
+            mouseOverRay: function(){ /* empty implementation */ },
+            mouseOutRay: function(){ /* empty implementation */ },
+            clickRay: function(){ /* empty implementation */ }
         };
 
         // overrides default properties with provided (if any)
-        if (opts) {
-            for (p in opts) {
-                if (opts.hasOwnProperty(p)) {
+        if(opts) {
+            for(p in opts) {
+                if(opts.hasOwnProperty(p)) {
                     this.opts[p] = opts[p]
                 }
             }
         }
 
-        if (!this.opts.width) {
+        if(!this.opts.width) {
             this.opts.width = el.offsetWidth;
         }
 
-        if (!this.opts.height) {
+        if(!this.opts.height) {
             this.opts.height = el.offsetHeight;
         }
 
         var padding = this.opts.padding;
-        if (!Array.isArray(padding)) {
+        if(!Array.isArray(padding)) {
             this.opts.padding = padding = [padding, padding, padding, padding];
         }
 
@@ -322,7 +322,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
     /**
      * Calculates and stores values related to chart dimensions
      */
-    Sunburst.prototype.preCalculate = function () {
+    Sunburst.prototype.preCalculate = function(){
         // do some precalculations
         var opts = this.opts,
             width = opts.width,
@@ -339,7 +339,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
     /**
      * Renders base sunburst elements, without drawing dataset
      */
-    Sunburst.prototype.render = function () {
+    Sunburst.prototype.render = function(){
         this.el.innerHTML = '';
 
         var _this = this,
@@ -372,7 +372,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * Renders scale of the sunburst. It is supposed that we uses maxValue in options, so that we dont need dataset
      * to define maximum value on scale
      */
-    Sunburst.prototype.drawScale = function () {
+    Sunburst.prototype.drawScale = function(){
         var opts = this.opts,
             _this = this;
 
@@ -389,15 +389,15 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
 
         vizScale.selectAll('circle.scale').data(data)
             .enter().append('circle')
-            .attr('r', function (d) { return _this.scaleSize(d); })
-            .attr('stroke', '#cecece')
+            .attr('r', function(d){ return _this.scaleSize(d); })
+            .attr('stroke', function(d){ return d == 0 ? 'rgba(0, 0, 0, 0.4)' : '#cecece';})
             .attr('fill', 'none')
         ;
 
         vizScale.selectAll('text.scale').data(data).enter().append('text')
             .attr('class', 'scale')
-            .text(function (d) { return d})
-            .attr('y', function (d) { return _this.scaleSize(d)});
+            .text(function(d){ return d})
+            .attr('y', function(d){ return _this.scaleSize(d)});
     }
 
     /**
@@ -405,58 +405,59 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * TODO deal more correct with legendLabelOffset - currently it is offset from outer radius that looks confusing
      * @param dataset
      */
-    Sunburst.prototype.drawData = function (dataset) {
+    Sunburst.prototype.drawData = function(dataset){
         //return;
         var _this = this,
             opts = this.opts;
 
-        // creates bar sizes scale from sizes range to radius value in pixels
-        var maxSize = opts.maxValue || Math.max.apply(Math, dataset.map(function (d) { return d.size;}));
-
         // create groups that will be used for rendering real data
         this.chartGroup.selectAll('*').remove();
+
+        var maxScaleSize = opts.scaleDomain[1];
+        dataset.forEach(function(d){ d.size = Math.min(d.size, maxScaleSize)});;
 
         this.chartGroup.selectAll('path').data(dataset).enter()
             .append('path')
             .attr('d', arc(this.scaleSize))
             .attr('class', opts.rayClass)
-            .attr('data-id', function (d) { return d.id; }) // optional
+            .attr('data-id', function(d){ return d.id; }) // optional
             .attr('fill', opts.fillColor)
             .attr('stroke', opts.strokeColor)
+            .style('display', function(d){ return isNaN(parseInt(d.size)) ? 'none' : 'block'})
             .classed('arc', true)
             .on('mouseenter', opts.mouseOverRay)
             .on('click', opts.clickRay)
             .on('mousemove', wrapWith(showTooltip, this.oX, this.oY, this.tooltip, opts))
-            .on('mouseleave', function () {
-                setTimeout(function () { _this.tooltip.hide()}, 0);
+            .on('mouseleave', function(){
+                setTimeout(function(){ _this.tooltip.hide()}, 0);
                 opts.mouseOutRay.apply(this, arguments)
             });
 
         // Creates chart labels
         var labelPosition = new LabelPosition(this.chartGroup, opts.width / 2, opts.height / 2);
 
-        var labelLayout = (function () {
+        var labelLayout = (function(){
             // returns position from d
-            var dPos = function (d) {
+            var dPos = function(d){
                 return labelPosition.find(text(d), d.startAngle + d.deltaAngle / 2, _this.scaleSize(d.size) + 3);
             };
 
             return {
-                x: function (d) { return dPos(d).x0; },
-                y: function (d) { return dPos(d).y0; },
+                x: function(d){ return dPos(d).x0; },
+                y: function(d){ return dPos(d).y0; },
 
-                ly: function (d) { return dPos(d).y0 + dPos(d).dy; },
-                lx: function (d) { return dPos(d).x0 + dPos(d).dx; },
+                ly: function(d){ return dPos(d).y0 + dPos(d).dy; },
+                lx: function(d){ return dPos(d).x0 + dPos(d).dx; },
 
-                lineX: function (d) { return dPos(d).lineX; },
-                lineY: function (d) { return dPos(d).lineY; },
+                lineX: function(d){ return dPos(d).lineX; },
+                lineY: function(d){ return dPos(d).lineY; },
 
-                h: function (d) { return dPos(d).h; },
-                w: function (d) { return dPos(d).w; }
+                h: function(d){ return dPos(d).h; },
+                w: function(d){ return dPos(d).w; }
             }
         })();
 
-        function text(d) {
+        function text(d){
             return d.name;
         }
 
@@ -469,12 +470,13 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .attr('y', labelLayout.y)
             .attr('width', labelLayout.w)
             .attr('height', labelLayout.h)
-            .on('mouseenter', function (d) {
+            .on('mouseenter', function(d){
                 var ray = _this.chartGroup.select('path[data-id="' + d.id + '"]');
                 selectArc(ray.node());
-            }).on('mouseleave', function () {
-            _this.chartGroup.selectAll('.arc').classed('selected', false);
-        })
+            })
+            .on('mouseleave', function(){
+                _this.chartGroup.selectAll('.arc').classed('selected', false);
+            })
         ;
 
         // TODO: add labels inside rectangles. may be it makes sense with possible wrapping
@@ -482,18 +484,20 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
             .attr('class', 'label')
             .attr('x', labelLayout.lx)
             .attr('y', labelLayout.ly)
+            .style('display', function(d){ return isNaN(parseInt(d.size)) ? 'none' : 'block'})
             .text(text)
-            .on('mouseenter', function (d) {
+            .on('mouseenter', function(d){
                 var ray = _this.chartGroup.select('path[data-id="' + d.id + '"]');
                 selectArc(ray.node());
-            }).on('mouseleave', function () {
+            })
+            .on('mouseleave', function(){
             _this.chartGroup.selectAll('.arc').classed('selected', false);
         });
 
 
         g.append('line')
-            .attr('x1', function (d) { return (_this.scaleSize(d.size) + 2) * Math.sin(d.startAngle + d.deltaAngle / 2); })
-            .attr('y1', function (d) { return -(_this.scaleSize(d.size) + 2) * Math.cos(d.startAngle + d.deltaAngle / 2); })
+            .attr('x1', function(d){ return (_this.scaleSize(d.size) + 2) * Math.sin(d.startAngle + d.deltaAngle / 2); })
+            .attr('y1', function(d){ return -(_this.scaleSize(d.size) + 2) * Math.cos(d.startAngle + d.deltaAngle / 2); })
             .attr('x2', labelLayout.lineX)
             .attr('y2', labelLayout.lineY);
 
@@ -505,18 +509,18 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
          *      all labels position, as wraping is dont after label is on the screen
          * @deprecated
          */
-        function wrap(d) {
+        function wrap(d){
             var sel = d3.select(this),
                 tokens = sel.text().split("\n");
 
-            if (tokens.length > 1) {
+            if(tokens.length > 1) {
                 var h = sel.node().getBBox().height,
                     x = sel.attr('x'),
                     y = sel.attr('y');
 
                 sel.text(null);
 
-                for (var i = 0, l = tokens.length; i < l; i++) {
+                for(var i = 0, l = tokens.length; i < l; i++) {
                     sel.append('tspan').attr('x', x).attr('y', y).attr('dy', h * i).text(tokens[i].trim());
                 }
             }
@@ -527,7 +531,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function (d3, HtmlUtil, Tooltip
      * Selects arc by its ID
      * @param id
      */
-    Sunburst.prototype.select = function (id) {
+    Sunburst.prototype.select = function(id){
         selectArc(d3.select(this.el).select('.arc[data-id="' + id + '"]').node());
     };
 

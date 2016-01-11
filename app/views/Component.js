@@ -12,7 +12,6 @@ define([
     'util/HtmlUtil',
     'd3'
 ], function (template, Dataset, dataRating, dataScores, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
-
     var MODE_INDICATORS = 'indicators',
         MODE_CATEGORIES = 'categories';
 
@@ -82,8 +81,6 @@ define([
          * Options defined for indicators sunburst
          */
         var indicatorsOpts = {
-            maxValue: 20,
-
             mouseOut: function (d) {
                 app.set('mode', MODE_CATEGORIES);
             },
@@ -107,7 +104,7 @@ define([
 
         // Defines scale and scale domains for rating and score cases
         var ratingScaleDomain = [0, 20],
-            scoreScaleDomain = [-3.25, 3.5],
+            scoreScaleDomain = [-3, 3],
             scoreScale = [-3, -1.5, 0, 1.5, 3];
 
         el.innerHTML = template;
@@ -222,22 +219,22 @@ define([
             drawThemes();
         });
 
-        query.one('.units a').addEventListener('click', function(evt){
-            evt.preventDefault();
-            var target = evt.target;
-
-            var newText = target.getAttribute('data-other');
-            var text = target.innerHTML;
-
-            target.innerHTML = newText;
-            target.setAttribute('data-other', text);
-
-            if(text == 'Scores'){
-                setScoreData();
-            }else{
-                setRatingData();
-            }
-        });
+        //query.one('.units a').addEventListener('click', function(evt){
+        //    evt.preventDefault();
+        //    var target = evt.target;
+        //
+        //    var newText = target.getAttribute('data-other');
+        //    var text = target.innerHTML;
+        //
+        //    target.innerHTML = newText;
+        //    target.setAttribute('data-other', text);
+        //
+        //    if(text == 'Scores'){
+        //        setScoreData();
+        //    }else{
+        //        setRatingData();
+        //    }
+        //});
 
 
         setScoreData();

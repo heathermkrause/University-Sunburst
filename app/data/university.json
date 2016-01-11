@@ -1,7 +1,7 @@
 {
   "categories" : {
     "1" : {
-      "en" : { "name" : "EQUITY OF ACCESS", "longname" : "Enrolment of underrepresented groups, Ontarians from lower socio-economic backgrounds, and transfer students" },
+      "en" : { "name" : "EQUITY OF ACCESS", "longname" : "Enrolment of underrepresented groups, Ontarians from lower socio-economic backgrounds and transfer students" },
       "fr" : { "name" : "ÉQUITÉ DE L’ACCÈS", "longname" : "Inscription des groupes sous-représentés, Ontariens issus de milieux socioéconomiques modestes et étudiants provenant d'un autre établissement " }
     },
     "2" : {
@@ -9,15 +9,15 @@
       "fr" : { "name" : "OFFRE ET DEMANDE", "longname" : "Préférence des étudiants et choix de l'université" }
     },
     "3" : {
-      "en" : { "name" : "LEARNING JOURNEY", "longname" : "The learning environment, student experience, and completion rates" },
+      "en" : { "name" : "LEARNING JOURNEY", "longname" : "The learning environment, student experience and completion rates" },
       "fr" : { "name" : "PARCOURS D’APPRENTISSAGE", "longname" : "L’environnement d’apprentissage, l'expérience étudiante et les taux d'achèvement des études" }
     },
     "4" : {
-      "en" : { "name" : "GRADUATE OUTCOMES", "longname" : "Resultant success in the job market and with the repayment of student loans" },
+      "en" : { "name" : "GRADUATE OUTCOMES", "longname" : "Resultant success in the job market and with repayment of student loans" },
       "fr" : { "name" : "DÉBOUCHÉS OFFERTS AUX DIPLÔMÉS", "longname" : "Réussite sur le marché du travail et remboursement des prêts étudiants" }
     },
     "5" : {
-      "en" : { "name" : "RESEARCH \nINTENSITY", "longname" : "Research Intensity and outcomes and PhD level graduates" },
+      "en" : { "name" : "RESEARCH \nINTENSITY", "longname" : "Research Intensity and outcomes, and PhD level graduates" },
       "fr" : { "name" : "INTENSITÉ DE LA RECHERCHE", "longname" : "Intensité et résultats de la recherche et diplômés titulaires d'un doctorat" }
     }
   },
@@ -44,12 +44,13 @@
       "fr" : { "name" : "Temps partiel", "longname" : "Pourcentage d'étudiants à temps partiel" }
     },
     "6" : {
+      "skip" : true,
       "en" : { "name" : "Transfer Students", "longname" : "Transfer Student Applicant to Registrant Ratio" },
       "fr" : { "name" : "Étudiants venant d’un autre établissement", "longname" : "Rapport entre les candidats et les étudiants inscrits venant d'un autre établissement " }
     },
     "7" : {
-      "en" : { "name" : "Credit Transfer", "longname" : "Percentage of Registrants with Transferred Credits" },
-      "fr" : { "name" : "Transfert des crédits", "longname" : "Pourcentage d'étudiants inscrits dont les crédits ont été transférés " }
+      "en" : { "name" : "Credit Transfer", "longname" : "% Registrants who are Transferees" },
+      "fr" : { "name" : "Transfert des crédits", "longname" : "% d’étudiants qui ont transféré" }
     },
 
     "8" : {
@@ -99,7 +100,7 @@
       "fr" : { "name" : "Emploi", "longname" : "Taux d’emploi des diplômés universitaires deux ans après l'obtention du diplôme" }
     },
     "19" : {
-      "en" : { "name" : "Earnings", "longname" : "Average Earnings of University Grduates Two Years after Graduation" },
+      "en" : { "name" : "Earnings", "longname" : "Average Earnings of University Graduates Two Years after Graduation" },
       "fr" : { "name" : "Gains", "longname" : "Gains moyens des diplômés universitaires deux ans après l'obtention du diplôme" }
     },
     "20" : {
@@ -484,6 +485,66 @@
             { "id" : 22, "value" : 8 },
             { "id" : 23, "value" : 4 },
             { "id" : 24, "value" : 4 }
+          ]
+        }
+      ]
+    },
+    {
+      "id" : 18,
+      "name" : "Laurier",
+      "categories" : [
+        {
+          "id" : 1,
+          "score" : 6,
+          "indicators" : [
+            { "id" : 1, "value" : 10 },
+            { "id" : 2, "value" : 13 },
+            { "id" : 3, "value" : 4 },
+            { "id" : 4, "value" : 8 },
+            { "id" : 5, "value" : 4 },
+            { "id" : 6, "value" : 1 },
+            { "id" : 7, "value" : 4 }
+          ]
+        },
+        {
+          "id" : 2,
+          "score" : 8,
+          "indicators" : [
+            { "id" : 8, "value" : 17 },
+            { "id" : 9, "value" : 1 },
+            { "id" : 10, "value" : 5 },
+            { "id" : 11, "value" : 6 },
+            { "id" : 12, "value" : 12 }
+          ]
+        },
+        {
+          "id" : 3,
+          "score" : 11,
+          "indicators" : [
+            { "id" : 13, "value" : 13 },
+            { "id" : 14, "value" : 12 },
+            { "id" : 15, "value" : 2 },
+            { "id" : 16, "value" : 14 },
+            { "id" : 17, "value" : 13 }
+          ]
+        },
+        {
+          "id" : 4,
+          "score" : 11,
+          "indicators" : [
+            { "id" : 18, "value" : 16 },
+            { "id" : 19, "value" : 9 },
+            { "id" : 20, "value" : 7 }
+          ]
+        },
+        {
+          "id" : 5,
+          "score" : 7,
+          "indicators" : [
+            { "id" : 21, "value" : 7 },
+            { "id" : 22, "value" : 5 },
+            { "id" : 23, "value" : 5 },
+            { "id" : 24, "value" : 9 }
           ]
         }
       ]
@@ -1155,67 +1216,6 @@
             { "id" : 22, "value" : 17 },
             { "id" : 23, "value" : 17 },
             { "id" : 24, "value" : 13 }
-          ]
-        }
-      ]
-    },
-
-    {
-      "id" : 18,
-      "name" : "Laurier",
-      "categories" : [
-        {
-          "id" : 1,
-          "score" : 6,
-          "indicators" : [
-            { "id" : 1, "value" : 10 },
-            { "id" : 2, "value" : 13 },
-            { "id" : 3, "value" : 4 },
-            { "id" : 4, "value" : 8 },
-            { "id" : 5, "value" : 4 },
-            { "id" : 6, "value" : 1 },
-            { "id" : 7, "value" : 4 }
-          ]
-        },
-        {
-          "id" : 2,
-          "score" : 8,
-          "indicators" : [
-            { "id" : 8, "value" : 17 },
-            { "id" : 9, "value" : 1 },
-            { "id" : 10, "value" : 5 },
-            { "id" : 11, "value" : 6 },
-            { "id" : 12, "value" : 12 }
-          ]
-        },
-        {
-          "id" : 3,
-          "score" : 11,
-          "indicators" : [
-            { "id" : 13, "value" : 13 },
-            { "id" : 14, "value" : 12 },
-            { "id" : 15, "value" : 2 },
-            { "id" : 16, "value" : 14 },
-            { "id" : 17, "value" : 13 }
-          ]
-        },
-        {
-          "id" : 4,
-          "score" : 11,
-          "indicators" : [
-            { "id" : 18, "value" : 16 },
-            { "id" : 19, "value" : 9 },
-            { "id" : 20, "value" : 7 }
-          ]
-        },
-        {
-          "id" : 5,
-          "score" : 7,
-          "indicators" : [
-            { "id" : 21, "value" : 7 },
-            { "id" : 22, "value" : 5 },
-            { "id" : 23, "value" : 5 },
-            { "id" : 24, "value" : 9 }
           ]
         }
       ]

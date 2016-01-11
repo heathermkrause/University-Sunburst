@@ -13,7 +13,6 @@ define(['util/i18nValue'], function (i18nValue) {
         var count = categories.length,
             arcAngle = (2 * Math.PI - count * arcDelta) / count;
 
-
         return dataset.getCategories(university).map(function (d, index) {
             var startAngle = index * (arcDelta + arcAngle),
                 details = dataset.getCategoryDetails(d.id);
