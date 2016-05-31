@@ -55,7 +55,7 @@
     },
 
     "8" : {
-      "en" : { "name" : "Applicant Demand", "longname" : "Applicant to Registrant Ratio" },
+      "en" : { "name" : "Applicant Demand", "longname" : "Application to Registrant Ratio" },
       "fr" : { "name" : "Demande de candidats", "longname" : "Rapport entre les candidats et les étudiants inscrits" }
     },
     "9" : {
