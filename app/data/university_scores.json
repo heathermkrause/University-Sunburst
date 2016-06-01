@@ -56,11 +56,11 @@
 
     "8" : {
       "en" : { "name" : "Applicant Demand", "longname" : "Application to Registrant Ratio" },
-      "fr" : { "name" : "Demande de candidats", "longname" : "Rapport entre les candidats et les étudiants inscrits" }
+      "fr" : { "name" : "Demande de candidats", "longname" : "Rapport entre les candidatures et les étudiants inscrits" }
     },
     "9" : {
       "en" : { "name" : "First Choice", "longname" : "Percentage of Applicants who Ranked the University as their Frist Choice" },
-      "fr" : { "name" : "Premier choix", "longname" : "Pourcentage de candidats ayant classé l'université comme étant leur premier choix" }
+      "fr" : { "name" : "Premier choix", "longname" : "Pourcentage de candidats ayant choisi l'université comme leur premier choix" }
     },
     "10" : {
       "en" : { "name" : "Rest of Canada", "longname" : "Percentage of Entering Students who are from other Canadian Provinces and Territories" },
@@ -72,7 +72,7 @@
     },
     "12" : {
       "en" : { "name" : "Entering Marks", "longname" : "Percentage of Entering Students with High School Parks Above 75%" },
-      "fr" : { "name" : "Notes des nouveaux étudiants", "longname" : "Pourcentage de nouveaux étudiants dont les notes à l'école secondaire étaient inférieures à 75 %" }
+      "fr" : { "name" : "Notes des nouveaux étudiants", "longname" : "Pourcentage de nouveaux étudiants ayant des notes au secondaire de plus de 75 %" }
     },
 
     "13" : {
@@ -89,7 +89,7 @@
     },
     "16" : {
       "en" : { "name" : "Undergraduate Experience", "longname" : "Percentage of Senior Undergraduate Students who had an \"Excellent\" or \"Good\" Educational Experience" },
-      "fr" : { "name" : "Undergraduate Experience", "longname" : "Percentage of Senior Undergraduate Students who had an \"Excellent\" or \"Good\" Educational Experience" }
+      "fr" : { "name" : "Expérience des étudiants de premier cycle", "longname" : "Pourcentage d'étudiants de premier cycle finissants qui décrivent leur expérience éducative comme étant \"excellente\" ou \"bonne\"" }
     },
     "17" : {
       "skip" : true,
@@ -112,7 +112,7 @@
 
     "21" : {
       "en" : { "name" : "PhDs", "longname" : "Percentage of graduates who are PhDs" },
-      "fr" : { "name" : "Doctorat", "longname" : "Pourcentage de diplômés étant titulaires d'un doctorat" }
+      "fr" : { "name" : "Doctorat", "longname" : "Revenu de recherche subventionnée par membre du corps professoral" }
     },
     "22" : {
       "en" : { "name" : "Research Income", "longname" : "Sponsored Research Income per Faculty Member" },
@@ -120,7 +120,7 @@
     },
     "23" : {
       "en" : { "name" : "Citations", "longname" : "Total Citations per Faculty Member" },
-      "fr" : { "name" : "Citations", "longname" : "Total Citations per Faculty Member" }
+      "fr" : { "name" : "Citations", "longname" : "Total des citations par membre du corps professoral" }
     },
     "24" : {
       "en" : { "name" : "H-Score", "longname" : "Research Impact: Mean Standardized H-Scores" },
@@ -128,15 +128,15 @@
     },
     "25" : {
       "en" : { "name" : "Disability", "longname" : "Percentage of Students with a Disability" },
-      "fr" : { "name" : "Disability", "longname" : "Percentage of Students with a Disability" }
+      "fr" : { "name" : "Étudiants handicapés", "longname" : "Pourcentage d'étudiants handicapés" }
     },
     "26" : {
       "en" : { "name" : "Graduate Experience", "longname" : "Percentage of Senior Graduate Students who had an \"Excellent\", \"Very Good\" or \"Good\" Overall Experience" },
-      "fr" : { "name" : "Graduate Experience", "longname" : "Percentage of Senior Graduate Students who had an \"Excellent\", \"Very Good\" or \"Good\" Overall Experience" }
+      "fr" : { "name" : "Expérience des étudiants de cycles supérieurs", "longname" : "Pourcentage d'étudiants de cycles supérieurs finissants qui décrivent leur expérience universitaire comme \"excellente\", \"très bonne\" ou \"bonne\"" }
     },
     "27" : {
       "en" : { "name" : "Publications", "longname" : "Total Publications per Faculty Member" },
-      "fr" : { "name" : "Publications", "longname" : "Total Publications per Faculty Member" }
+      "fr" : { "name" : "Publications", "longname" : "Total des publications par membre du corps professoral" }
     }
   },
 
