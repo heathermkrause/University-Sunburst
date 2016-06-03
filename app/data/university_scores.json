@@ -6,7 +6,7 @@
     },
     "2" : {
       "en" : { "name" : "DEMAND", "longname" : "Student Preference and University Selection" },
-      "fr" : { "name" : "OFFRE ET DEMANDE", "longname" : "Préférence des étudiants et choix de l'université" }
+      "fr" : { "name" : "DEMANDE", "longname" : "Préférence des étudiants et choix de l'université" }
     },
     "3" : {
       "en" : { "name" : "LEARNING JOURNEY", "longname" : "The Learning Environment, Student Experience and Competition Rates" },
