@@ -8,6 +8,12 @@ function extract(name, cid) {
     })[0].categories[cid].indicators.filter(ind => !isSkip(ind.id));
 }
 
+function extractCategory(name, cid){
+    return data.universities.filter(function (u) {
+        return u.name == name;
+    })[0].categories[cid];
+}
+
 var isSkip = function(id){
     return data.indicators[id].skip;
 };
@@ -71,5 +77,13 @@ uns.forEach(name => {
     res += d.map(o => col(o.value, colLength)).join('') + "\n";
 });
 res = col('', 14) + indicators.map(id => col('[' + id + ']', colLength)).join('') + "\n" + res;
+
+//console.log(res);
+
+res = '';
+uns.forEach(un => {
+    var d = extractCategory(un, 4);
+    res += col(un, 14) + d.score + "\n";
+});
 
 console.log(res);

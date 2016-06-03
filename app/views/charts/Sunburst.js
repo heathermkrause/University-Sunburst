@@ -419,7 +419,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip)
         this.chartGroup.selectAll('path').data(dataset).enter()
             .append('path')
             .attr('d', arc(this.scaleSize))
-            .attr('class', opts.rayClass)
+            .attr('class', function(d){ return opts.rayClass(d) + (d.value == "" ? " hidden" : ""); })
             .attr('data-id', function(d){ return d.id; }) // optional
             .attr('fill', opts.fillColor)
             .attr('stroke', opts.strokeColor)
@@ -481,7 +481,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip)
 
         // TODO: add labels inside rectangles. may be it makes sense with possible wrapping
         g.append('text')
-            .attr('class', 'label')
+            .attr('class', function(d){ return 'label' + (d.value == "" ? " hidden" : ""); })
             .attr('x', labelLayout.lx)
             .attr('y', labelLayout.ly)
             .style('display', function(d){ return isNaN(parseInt(d.size)) ? 'none' : 'block'})
@@ -496,6 +496,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip)
 
 
         g.append('line')
+            .attr('class', function(d){ return d.value == "" ? " hidden" : ""; })
             .attr('x1', function(d){ return (_this.scaleSize(d.size) + 2) * Math.sin(d.startAngle + d.deltaAngle / 2); })
             .attr('y1', function(d){ return -(_this.scaleSize(d.size) + 2) * Math.cos(d.startAngle + d.deltaAngle / 2); })
             .attr('x2', labelLayout.lineX)

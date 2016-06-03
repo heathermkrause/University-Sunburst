@@ -34,6 +34,7 @@ define(['util/i18nValue'], function (i18nValue) {
                 longname : i18nValue(details, 'longname', lang),
                 catid : category.id,
                 size : d.value,
+                value : d.value,
                 startAngle: _startAngle,
                 angle: _startAngle + arcAngle / 2,
                 deltaAngle: arcAngle,
