@@ -35,7 +35,7 @@ define([
     return function (el) {
         // Defines application object that will be responsible for holding current state and
         // emitting change events
-        var app = new App({university: 1, lang: 'en'});
+        var app = new App({university: 1, lang: 'fr'});
 
         var ratingDataset = new Dataset(dataRating),
             scoreDataset = new Dataset(dataScores);
