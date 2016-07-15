@@ -4,7 +4,7 @@ define(['../util/query', '../util/HtmlUtil'], function (query, HtmlUtil) {
      */
     function forEach(it, callback){
         if(it.forEach){
-            it.call(it, it.forEach, callback);
+            Function.prototype.call(it, it.forEach, callback);
 
         }else if(typeof it.length !== 'undefined'){
             for(var i = 0, l = it.length; i < l; i++){

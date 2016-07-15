@@ -39,7 +39,7 @@ module.exports = {
         //    name: 'common',
         //    filename: 'common.js'
         //}),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({sourceMap : false}),
         new webpack.DefinePlugin({
             'ENV': {
                 'type': JSON.stringify('development'),
