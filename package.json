@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "",
   "devDependencies": {
+    "bower": "^1.7.9",
     "css-loader": "^0.21.0",
     "csv": "^0.4.6",
     "file-loader": "^0.8.4",
