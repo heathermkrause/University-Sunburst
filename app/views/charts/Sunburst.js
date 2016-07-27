@@ -15,7 +15,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip)
      * @param       scaleSize
      */
     function arc(scaleSize){
-        return d3.svg.arc()
+        return d3.arc()
             .innerRadius(0)
             .outerRadius(function(d){ return scaleSize(d.size)})
             .startAngle(function(d){ return d.startAngle; })
@@ -348,7 +348,7 @@ define(["d3", 'util/HtmlUtil', 'views/Tooltip'], function(d3, HtmlUtil, Tooltip)
         var outer = this.el.appendChild(document.createElement('div'));
 
         // prepares scale
-        this.scaleSize = d3.scale.linear().domain(opts.scaleDomain).range([opts.minOuterRadius, this.chartRadius]);
+        this.scaleSize = d3.scaleLinear().domain(opts.scaleDomain).range([opts.minOuterRadius, this.chartRadius]);
 
         // prepares svg
         var svg = d3.select(outer).append('svg')

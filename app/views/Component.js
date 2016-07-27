@@ -11,7 +11,7 @@ define([
     'util/query',
     'util/HtmlUtil',
     'd3'
-], function (template, Dataset, dataRating, dataScores, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil) {
+], function (template, Dataset, dataRating, dataScores, App, Sunburst, dropdown, categoriesSunburst, indicatorsSunburst, query, HtmlUtil, d3) {
     var MODE_INDICATORS = 'indicators',
         MODE_CATEGORIES = 'categories';
 
@@ -35,7 +35,7 @@ define([
     return function (el) {
         // Defines application object that will be responsible for holding current state and
         // emitting change events
-        var app = new App({university: 1, lang: 'fr'});
+        var app = new App({university: 1, lang: 'en'});
 
         var ratingDataset = new Dataset(dataRating),
             scoreDataset = new Dataset(dataScores);

@@ -10,19 +10,23 @@
     "file-loader": "^0.8.4",
     "fs": "0.0.2",
     "http-server": "^0.6.1",
-    "less": "^2.5.3",
+    "less": "^2.7.1",
     "less-loader": "^2.2.1",
     "raw-loader": "^0.5.1",
+    "requirejs": "^2.2.0",
+    "requirejs-text": "^2.0.12",
     "style-loader": "^0.13.0",
     "text-loader": "0.0.1",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2"
   },
   "scripts": {
-    "postinstall": "bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8081 ./",
     "dist": "webpack",
     "predist": "npm install"
+  },
+  "dependencies": {
+    "d3": "^4.1.1"
   }
 }

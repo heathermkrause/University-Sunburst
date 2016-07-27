@@ -10,7 +10,7 @@ module.exports = {
         extensions: ['', '.ts', '.js'],
         modulesDirectories: ['app'],
         alias: {
-            d3: "libs/d3/d3"
+            d3: "node_modules/d3"
         }
     },
 

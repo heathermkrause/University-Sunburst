@@ -2,11 +2,17 @@ require({
     baseUrl : './app',
     urlArgs: 'bust=' + Date.now(),
     paths : {
-        text : "../libs/text/text",
-        domReady : "../libs/requirejs-domready/domReady",
-        d3 : "../libs/d3/d3"
+        text : "../node_modules/requirejs-text/text",
+        d3 : "../node_modules/d3/build/d3"
     }
-}, ['bootstrap', 'domReady!'], function (bootstrap) {
+}, ['bootstrap', 'd3'], function (bootstrap, d3) {
+    var ready = function(){
+        bootstrap(document.getElementById('embed'));
+    };
 
-    bootstrap(document.getElementById('embed'));
+    document.addEventListener('DOMContentLoaded', ready, false);
+
+    if(document.readyState === "complete"){
+        ready();
+    }
 });
